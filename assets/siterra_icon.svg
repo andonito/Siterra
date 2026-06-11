@@ -1,0 +1,68 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smooth dark gradient background matching your site's aesthetic -->
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad)"/>
+  
+  <!-- Subtle circular outer frame light reflection -->
+  <rect x="16" y="16" width="480" height="480" rx="96" stroke="white" stroke-opacity="0.08" stroke-width="2"/>
+  
+  <!-- Soft central radial glow underneath vector paths -->
+  <circle cx="256" cy="256" r="160" fill="url(#glow-grad)" opacity="0.3"/>
+  
+  <!-- The Iconic Siterra S-Curve Geometry -->
+  <g filter="url(#drop-shadow)">
+    <!-- Top Arc in Premium White/Silver -->
+    <path 
+      d="M180 320C180 274 212 240 256 240C300 240 332 206 332 160" 
+      stroke="url(#silver-grad)" 
+      stroke-width="32" 
+      stroke-linecap="round"
+    />
+    
+    <!-- Bottom Arc in Vibrant Cobalt Blue -->
+    <path 
+      d="M210 352C210 306 242 272 286 272C330 272 362 238 362 192" 
+      stroke="url(#blue-grad)" 
+      stroke-width="32" 
+      stroke-linecap="round"
+    />
+    
+    <!-- Luminous Central Core Pixel -->
+    <circle cx="256" cy="256" r="24" fill="#3B82F6"/>
+    <circle cx="256" cy="256" r="12" fill="#93C5FD"/>
+  </g>
+
+  <!-- Definition of gradients and filters for vector richness -->
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.5" stop-color="#0E1117"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    
+    <radialGradient id="glow-grad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" transform="translate(256 256) rotate(90) scale(160)">
+      <stop stop-color="#2563FF"/>
+      <stop offset="1" stop-color="#2563FF" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="silver-grad" x1="180" y1="160" x2="332" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#CBD5E1"/>
+    </linearGradient>
+    
+    <linearGradient id="blue-grad" x1="210" y1="192" x2="362" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    
+    <filter id="drop-shadow" x="120" y="100" width="290" height="310" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="12"/>
+      <feGaussianBlur stdDeviation="16"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.145 0 0 0 0 0.388 0 0 0 0 1 0 0 0 0.4 0"/>
+      <feComposite in2="BackgroundImageFix" operator="between"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg>

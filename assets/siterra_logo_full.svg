@@ -1,0 +1,82 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded branding panel background -->
+  <rect width="1200" height="400" rx="40" fill="url(#bg-grad)"/>
+  
+  <!-- Subtle border highlight -->
+  <rect x="8" y="8" width="1184" height="384" rx="32" stroke="white" stroke-opacity="0.05" stroke-width="2"/>
+
+  <!-- Logo Icon Element -->
+  <g transform="translate(140, 70)">
+    <!-- Icon Outer Square Plate -->
+    <rect width="260" height="260" rx="60" fill="url(#plate-grad)" stroke="white" stroke-opacity="0.08" stroke-width="2" />
+    <circle cx="130" cy="130" r="100" fill="url(#glow-grad)" opacity="0.25"/>
+    
+    <!-- Vector curves -->
+    <g filter="url(#drop-shadow)">
+      <path 
+        d="M90 170C90 142 108 120 130 120C152 120 170 98 170 70" 
+        stroke="url(#silver-grad)" 
+        stroke-width="18" 
+        stroke-linecap="round"
+      />
+      <path 
+        d="M110 190C110 162 128 140 150 140C172 140 190 118 190 90" 
+        stroke="url(#blue-grad)" 
+        stroke-width="18" 
+        stroke-linecap="round"
+      />
+      <circle cx="130" cy="130" r="14" fill="#3B82F6"/>
+      <circle cx="130" cy="130" r="7" fill="#93C5FD"/>
+    </g>
+  </g>
+
+  <!-- Title Text - SITERRA -->
+  <text x="470" y="210" fill="url(#text-grad)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="105" letter-spacing="0.08em">SITERRA</text>
+
+  <!-- Subtitle Text - DIGITAL STUDIO -->
+  <text x="475" y="275" fill="#A5ACB8" font-family="monospace, monospace" font-weight="600" font-size="28" letter-spacing="0.32em">DIGITAL STUDIO</text>
+
+  <!-- Gradients definitions -->
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1200" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1117"/>
+      <stop offset="1" stop-color="#05070A"/>
+    </linearGradient>
+
+    <linearGradient id="plate-grad" x1="0" y1="0" x2="260" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <linearGradient id="text-grad" x1="470" y1="130" x2="470" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    
+    <radialGradient id="glow-grad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" transform="translate(130 130) rotate(90) scale(100)">
+      <stop stop-color="#2563FF"/>
+      <stop offset="1" stop-color="#2563FF" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="silver-grad" x1="90" y1="70" x2="170" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#CBD5E1"/>
+    </linearGradient>
+    
+    <linearGradient id="blue-grad" x1="110" y1="90" x2="190" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    
+    <filter id="drop-shadow" x="50" y="30" width="180" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="12"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.145 0 0 0 0 0.388 0 0 0 0 1 0 0 0 0.35 0"/>
+      <feComposite in2="BackgroundImageFix" operator="between"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg>

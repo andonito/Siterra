@@ -542,18 +542,27 @@ export default function DemoDeviceSimulator({
               <div className="text-xs font-display font-bold uppercase tracking-wider text-white">Why Siterra Projects Win Trust</div>
             </div>
             
-            <ul className="space-y-2 text-xs text-zinc-300">
-              <li className="flex items-start gap-2">
-                <span className="text-blue-400 font-bold font-mono">📍 Localized Strategy:</span>
-                <span>The system displays regional phone codes and customized local reviews instantly.</span>
+            <ul className="space-y-3 text-xs text-zinc-300">
+              <li className="flex items-start gap-2.5">
+                <span className="text-sm shrink-0 leading-none mt-0.5" aria-hidden="true">📍</span>
+                <div>
+                  <span className="text-blue-400 font-bold font-mono mr-1.5">Localized Strategy:</span>
+                  <span>The system displays regional phone codes and customized local reviews instantly.</span>
+                </div>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-400 font-bold font-mono">⚡ Interactive Conversion:</span>
-                <span>Includes responsive widgets (shade previewers, diagnostic selectors, property estimators) to reduce bounce rates.</span>
+              <li className="flex items-start gap-2.5">
+                <span className="text-sm shrink-0 leading-none mt-0.5" aria-hidden="true">⚡</span>
+                <div>
+                  <span className="text-blue-400 font-bold font-mono mr-1.5">Interactive Conversion:</span>
+                  <span>Includes responsive widgets (shade previewers, diagnostic selectors, property estimators) to reduce bounce rates.</span>
+                </div>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-400 font-bold font-mono">📲 Instant Dispatch Hooks:</span>
-                <span>Users dial with 1 tap. Mobile-first design maximizes lead velocity.</span>
+              <li className="flex items-start gap-2.5">
+                <span className="text-sm shrink-0 leading-none mt-0.5" aria-hidden="true">📲</span>
+                <div>
+                  <span className="text-blue-400 font-bold font-mono mr-1.5">Instant Dispatch Hooks:</span>
+                  <span>Users dial with 1 tap. Mobile-first design maximizes lead velocity.</span>
+                </div>
               </li>
             </ul>
 
