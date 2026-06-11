@@ -265,7 +265,7 @@ export default function App() {
             </div>
 
             {/* Right Column Visual Mockup Stack */}
-            <div className="lg:col-span-5 relative mt-8 lg:mt-0">
+            <div className="hidden sm:block lg:col-span-5 relative mt-8 lg:mt-0">
               <div className="relative mx-auto max-w-sm lg:max-w-none">
                 
                 {/* Background Glow */}
@@ -293,7 +293,7 @@ export default function App() {
                 <div className="absolute bottom-16 -right-12 bg-[#05070A] border border-white/10 px-4 py-2 rounded-full font-bold text-xs shadow-lg z-20 hidden sm:block">Local SEO Ready</div>
 
                 {/* Primary Mockup Panel (Glass card stack represents client dashboard) */}
-                <div className="bg-[#0E1117] border border-white/10 rounded-2xl p-5 shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500 relative z-15 backdrop-blur-md">
+                <div className="hidden sm:block bg-[#0E1117] border border-white/10 rounded-2xl p-5 shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500 relative z-15 backdrop-blur-md">
                   {/* Dashboard Header decoration */}
                   <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4.5">
                     <div className="flex items-center gap-2">
