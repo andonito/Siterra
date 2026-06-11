@@ -19,6 +19,7 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   // Set message placeholder or automated base subject
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
         setBudget("$2,500 - $5,000");
         setWebsiteType("fully-integrated-pro");
       } else if (defaultSubject.includes("$10,000")) {
-        setBudget("$5,5000 - $10,000");
+        setBudget("$5,000 - $10,000");
         setWebsiteType("enterprise-authority");
       }
     }
@@ -66,12 +67,36 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate premium backend network submission
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 900);
+    setErrorMsg(null);
+
+    const data = new URLSearchParams();
+    data.append("form-name", "lead-inquiry");
+    data.append("name", name);
+    data.append("businessName", businessName);
+    data.append("email", email);
+    data.append("phone", phone);
+    data.append("website", url);
+    data.append("websiteType", websiteType);
+    data.append("budget", budget);
+    data.append("message", message);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: data.toString(),
+    })
+      .then((res) => {
+        setLoading(false);
+        if (res.ok) {
+          setSubmitted(true);
+        } else {
+          setErrorMsg("Failed to submit inquiry to server. Please check your network and try again.");
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setErrorMsg("Failed to connect to the server. Please check your connection.");
+      });
   };
 
   if (!isOpen) return null;
@@ -186,7 +211,7 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
                 <input
                   required
                   type="text"
-                  placeholder="e.g. Sarasota Custom Tint"
+                  placeholder="e.g. ASAP Window Tinting"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
                   className="w-full bg-[#05070A] border border-white/10 rounded-lg p-2 text-xs text-white focus:outline-none focus:border-blue-500 transition-colors"
@@ -274,6 +299,12 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
               />
             </div>
 
+            {errorMsg && (
+              <div className="bg-red-500/10 border border-red-500/25 text-red-400 text-xs p-3 rounded-lg text-left font-mono">
+                ⚠ {errorMsg}
+              </div>
+            )}
+
             <button
               type="submit"
               disabled={loading}
@@ -293,7 +324,7 @@ export default function LeadModal({ isOpen, onClose, defaultSubject = "" }: Lead
             
             <div className="flex items-center justify-center gap-1.5 text-[9.5px] text-[#A5ACB8]">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>We never sell spam. Siterra processes inquiries behind TLS 256-bit encryption.</span>
+              <span>Your information is only used to respond to your website inquiry.</span>
             </div>
           </form>
         )}

@@ -90,9 +90,8 @@ export default function App() {
 
           {/* Desktop Navigation links */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#A5ACB8]">
-            <a href="#work" className="hover:text-blue-600 transition-colors">Work</a>
+            <a href="#work" className="hover:text-blue-600 transition-colors">Demo Sites</a>
             <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
-            <a href="#why-us" className="hover:text-blue-600 transition-colors">Why Siterra</a>
             <a href="#pricing" className="hover:text-blue-600 transition-colors">Pricing</a>
             <a href="#process" className="hover:text-blue-600 transition-colors">Process</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
@@ -123,13 +122,13 @@ export default function App() {
         {/* Mobile slide-out menu drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#0E1117] border-b border-white/8 shadow-2xl p-6.5 space-y-5 flex flex-col z-50 animate-slideDown">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3.5">
               <a 
                 href="#work" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
               >
-                Our Work
+                Demo Sites
               </a>
               <a 
                 href="#services" 
@@ -139,18 +138,25 @@ export default function App() {
                 Services
               </a>
               <a 
-                href="#why-us" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
-              >
-                Our Philosophy
-              </a>
-              <a 
                 href="#pricing" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
               >
-                Tech Packages
+                Pricing
+              </a>
+              <a 
+                href="#process" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
+              >
+                Process
+              </a>
+              <a 
+                href="#faq" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 bg-[#05070A] border border-white/5 rounded-xl col-span-2 text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
+              >
+                FAQ
               </a>
             </div>
             
@@ -240,7 +246,7 @@ export default function App() {
                 </p>
                 <div className="flex flex-wrap gap-x-6.5 gap-y-3.5 text-xs text-zinc-400">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle className="w-4 h-4 text-blue-500" /> Premium Design
+                    <CheckCircle className="w-4 h-4 text-blue-500" /> Live Demo Sites Available
                   </span>
                   <span className="flex items-center gap-1.5">
                     <CheckCircle className="w-4 h-4 text-blue-500" /> Mobile-First Build
@@ -308,14 +314,14 @@ export default function App() {
                         <span className="text-[9.5px] font-mono text-zinc-500 tracking-wider font-bold">PREMIUM CALLS</span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           <span className="font-mono text-xl font-black text-white">48</span>
-                          <span className="text-[9px] font-mono text-emerald-400 font-bold">+18% MoM</span>
+                          <span className="text-[9px] font-mono text-emerald-400 font-bold">Active</span>
                         </div>
                       </div>
                       <div className="bg-[#05070A] border border-white/5 rounded-xl p-3">
                         <span className="text-[9.5px] font-mono text-zinc-500 tracking-wider font-bold">NEW LEADS</span>
                         <div className="flex items-baseline gap-1.5 mt-0.5">
                           <span className="font-mono text-xl font-black text-white">82</span>
-                          <span className="text-[9px] font-mono text-emerald-400 font-bold">+24%</span>
+                          <span className="text-[9px] font-mono text-emerald-400 font-bold">Active</span>
                         </div>
                       </div>
                     </div>
@@ -328,9 +334,9 @@ export default function App() {
                         <TrendingUp className="w-4 h-4" />
                       </div>
                       <div className="text-xs shrink-0">
-                        <span className="text-[9px] font-mono text-emerald-400 font-bold tracking-wider block">CAPTUR PIPELINE ACTIVE</span>
+                        <span className="text-[9px] font-mono text-emerald-400 font-bold tracking-wider block">Sample Lead Dashboard</span>
                         <span className="font-bold text-white block mt-0.5">ASAP Window Tinting</span>
-                        <span className="text-zinc-400 text-[10px] block font-mono">Premium Nano Ceramic Tint ($850)</span>
+                        <span className="text-zinc-400 text-[10px] block font-mono">Quote Request Ready</span>
                       </div>
                     </div>
 
@@ -340,15 +346,15 @@ export default function App() {
                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                         <span className="text-xs font-bold text-white">Overtime Solutions</span>
                       </div>
-                      <span className="text-[10px] font-mono text-zinc-400">Emergency Dispatch Blocked</span>
+                      <span className="text-[10px] font-mono text-zinc-400">Mobile-First Layout</span>
                     </div>
 
                     {/* Network performance ticker */}
                     <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-zinc-500">
                       <span className="flex items-center gap-1">
-                        <Activity className="w-3 h-3 text-blue-600" /> TTFB: 0.18s
+                        <Activity className="w-3 h-3 text-blue-600" /> Fast Hosting Ready
                       </span>
-                      <span className="text-emerald-400 font-bold">Lighthouse Core: 100/100</span>
+                      <span className="text-emerald-400 font-bold">Local SEO Structure</span>
                     </div>
                   </div>
                 </div>
@@ -360,12 +366,12 @@ export default function App() {
                     <div className="w-4 h-6 bg-white/5 rounded-sm"></div>
                     <div className="w-4 h-8 bg-white/5 rounded-sm"></div>
                     <div className="w-4 h-12 bg-blue-600 rounded-sm shadow-[0_0_10px_rgba(21,91,255,0.5)]"></div>
-                    <div className="w-4 h-10 bg-white/10 rounded-sm"></div>
+                    <div className="w-4 h-10 bg-[#10B981] rounded-sm"></div>
                     <div className="w-4 h-4 bg-white/5 rounded-sm"></div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <p className="text-[10px] font-bold text-[#A5ACB8]">TRUST SCORE</p>
-                    <p className="text-xs font-bold text-blue-600">+42%</p>
+                    <p className="text-[10px] font-bold text-[#A5ACB8]">LEAD FLOW</p>
+                    <p className="text-xs font-bold text-emerald-400">Optimized</p>
                   </div>
                 </div>
 
@@ -464,13 +470,13 @@ export default function App() {
           <div className="space-y-12">
             <div className="max-w-3xl mx-auto space-y-4">
               <span className="font-mono text-xs font-bold text-blue-500 tracking-widest uppercase flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> Verified Live Deployments
+                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> Live Client Showcases
               </span>
               <h2 className="font-display font-extrabold text-3xl sm:text-4.2xl text-white tracking-tight leading-[1.1]">
-                Real-world client sites delivered with elite conversions.
+                Live demo websites built for service businesses.
               </h2>
               <p className="text-[#A5ACB8] text-sm sm:text-base leading-relaxed">
-                Explore actual high-performance platforms designed, copywritten, and deployed live on global CDN networks by Siterra. Review custom features, explore raw speed metrics, and watch direct video walkthroughs.
+                Explore premium website demos for window tinting, sprinkler repair, landscaping, and other local service businesses. Each demo is designed to look modern, load fast, and make it easy for customers to call or request a quote.
               </p>
             </div>
 
@@ -494,13 +500,13 @@ export default function App() {
           <div className="space-y-12">
             <div className="max-w-3xl mx-auto space-y-3">
               <span className="font-mono text-xs font-bold text-indigo-400 tracking-widest uppercase flex items-center justify-center gap-1.5">
-                <Cpu className="w-4 h-4 text-indigo-400" /> Sandboxed Prototypes
+                <Cpu className="w-4 h-4 text-indigo-400" /> Interactive Previews
               </span>
               <h3 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
-                Inspect raw conversion mechanics inside our live simulator.
+                See how a modern service website can guide visitors toward a call or quote request.
               </h3>
               <p className="text-[#A5ACB8] text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-                Interact with localized digital dials, test real-time automotive tint shade loaders, and submit simulated diagnostic triage requests.
+                Test custom interactive elements such as tint match sliders, emergency diagnostic panels, and property area estimators.
               </p>
             </div>
 
@@ -564,7 +570,7 @@ export default function App() {
                     onClick={() => openConsultation(`Service Inquiry: ${service.title}`)}
                     className="text-[10.5px] font-mono text-[#A5ACB8] group-hover:text-blue-400 transition-all font-bold flex items-center justify-end gap-1"
                   >
-                    Discuss Spec <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    Ask About This <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </div>
               </div>
@@ -602,8 +608,8 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/5 rounded-full blur-xl" />
                 <Award className="w-6 h-6 text-blue-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-xs font-bold font-display uppercase tracking-wider text-white block">Sarasota local citation audit</span>
-                  <p className="text-[11px] text-zinc-400 mt-0.5 leading-normal">Our engineers test every site across real cellular grids to guarantee 95+ performance metrics under stress.</p>
+                  <span className="text-xs font-bold font-display uppercase tracking-wider text-white block">Active Service Area Strategy</span>
+                  <p className="text-[11px] text-zinc-400 mt-0.5 leading-normal">We design websites specifically for your service areas and sub-divisions, helping local residents identify your firm as the trusted choice.</p>
                 </div>
               </div>
             </div>
@@ -621,19 +627,19 @@ export default function App() {
                 },
                 {
                   title: "We create clear service pages that explain what you do.",
-                  desc: "Siterra structures distinct, clean index pages highlighting every trade branch you offer. Google crawls this semantic data, awarding higher rankings."
+                  desc: "Siterra structures distinct, clean index pages highlighting every trade branch you offer. We structure your pages to give Google clearer information about your services and service areas."
                 },
                 {
-                  title: "We optimize for mobile because most customers visit from their phone.",
-                  desc: "All cards scale dynamically. Over 68% of local service queries come from mobile—we build to convert that traffic on small touches."
+                  title: "We optimize the mobile experience.",
+                  desc: "Most local service customers search from mobile devices. We rigorously test your website's buttons and forms on smartphones to make calling or booking effortless."
                 },
                 {
-                  title: "We can integrate forms, booking, analytics, and CRM tools.",
-                  desc: "Inbound leads flow directly to tools like Jobber, Housecall Pro, Calendly, or email APIs to alert your dispatchers in real time."
+                  title: "We can connect forms, booking, analytics, and CRM tools.",
+                  desc: "Inbound leads sync directly with tools like Jobber, Housecall Pro, Calendly, or standard email routing APIs to alert your cell in real time."
                 },
                 {
-                  title: "We move fast without making the final result feel rushed.",
-                  desc: "By designing on clean layouts, Siterra builds can deploy starting in days, fully checked across cross-browser environments."
+                  title: "We move quickly without making the final result feel rushed.",
+                  desc: "By starting from refined layout modules, we deliver fully launched projects on solid schedules, double-checked for bugs."
                 }
               ].map((point, index) => (
                 <div
@@ -989,7 +995,7 @@ export default function App() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                    <span>Mobile optimization & 0.2s TTFB</span>
+                    <span>Mobile-first responsive optimization</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
@@ -1157,7 +1163,7 @@ export default function App() {
 
           <div className="flex items-center justify-center gap-2 text-[10.5px] text-zinc-500 pt-1.5 font-mono">
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
-            <span>Siterra Studio SLA: Competitor analysis included free on all calls scheduled today.</span>
+            <span>Siterra Studio SLA: Free competitor and website review included with every strategy call.</span>
           </div>
         </div>
       </section>
@@ -1179,10 +1185,10 @@ export default function App() {
               <div className="space-y-1 pt-1 text-xs">
                 <span className="text-zinc-500 font-mono tracking-wider text-[9px] block">DIRECT BRIEFINGS</span>
                 <a 
-                  href="mailto:hello@siterra.com"
+                  href="mailto:hello@siterrastudio.com"
                   className="text-[#A5ACB8] hover:text-white transition-colors font-mono font-bold block hover:underline flex items-center gap-1.5"
                 >
-                  <Mail className="w-3.5 h-3.5 text-blue-500" /> hello@siterra.com
+                  <Mail className="w-3.5 h-3.5 text-blue-500" /> hello@siterrastudio.com
                 </a>
               </div>
             </div>
@@ -1231,7 +1237,7 @@ export default function App() {
 
           {/* Copyright line */}
           <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-            <span>© 2026 Siterra. All rights reserved. Sarasota, FL.</span>
+            <span>© 2026 Siterra. All rights reserved. Based in Florida. Serving local service businesses nationwide.</span>
             <div className="flex gap-6">
               <a href="#privacy" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
               <a href="#terms" className="hover:text-zinc-400 transition-colors">Terms of Service</a>

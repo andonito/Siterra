@@ -22,7 +22,7 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
       id: "seo",
       name: "Locational Keyword Schema (SEO)",
       price: 550,
-      description: "Optimized city pages to win Google Rankings for 'near me' key queries."
+      description: "Optimized city pages to help search engines understand your service areas."
     },
     {
       id: "multistep",
@@ -32,9 +32,9 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
     },
     {
       id: "speed",
-      name: "100/100 Speed Core Tuning",
+      name: "High-Speed Server Tuning",
       price: 250,
-      description: "Complete asset lazy-loads, clean minification, and global edge-cache deployment."
+      description: "Complete asset lazy-loads, clean minification, and global edge-cache deployment for strong performance scores."
     }
   ];
 
@@ -115,9 +115,9 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
           <Calculator className="w-5 h-5" />
         </div>
         <div className="text-left">
-          <span className="text-[10px] font-mono text-blue-400 font-bold tracking-wider uppercase">Interactive Modeler</span>
-          <h4 className="font-display font-black text-xl text-white tracking-tight">Project Spec Planner</h4>
-          <p className="text-xs text-[#A5ACB8]">Tailor your Siterra platform and preview simulated investment metrics instantly.</p>
+          <span className="text-[10px] font-mono text-blue-400 font-bold tracking-wider uppercase">Website Price Estimator</span>
+          <h4 className="font-display font-black text-xl text-white tracking-tight">Project Cost Planner</h4>
+          <p className="text-xs text-[#A5ACB8]">Tailor your Siterra platform and preview estimated design investments instantly.</p>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
           {/* Step 1: Base Platform */}
           <div className="space-y-3">
             <label className="text-xs font-mono font-bold text-[#A5ACB8] uppercase tracking-wider block">
-              1. Select Base System Engine
+              1. Choose Your Starting Package
             </label>
             <div className="grid grid-cols-2 gap-2.5">
               {PACKAGES.map((pkg) => (
@@ -162,7 +162,7 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <label className="text-xs font-mono font-bold text-[#A5ACB8] uppercase tracking-wider block">
-                  2. Customize Site Scale (Pages)
+                  2. How Many Pages Do You Need?
                 </label>
                 <span className="font-mono text-xs font-bold bg-[#05070A] border border-white/5 py-0.5 px-2 rounded-md text-blue-400">
                   {pageCount} Pages Selected
@@ -195,7 +195,7 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
           {/* Step 3: High Conversion Addons */}
           <div className="space-y-3">
             <label className="text-xs font-mono font-bold text-[#A5ACB8] uppercase tracking-wider block">
-              3. Upgrade Direct-Response Pipeline
+              3. Optional Add-ons
             </label>
             <div className="space-y-2">
               {addonsList.map((addon) => {
@@ -239,7 +239,7 @@ export default function PackageCalculator({ onOpenConsultation }: PackageCalcula
             
             <div className="space-y-4">
               <span className="text-[9px] font-mono font-extrabold tracking-widest text-[#A5ACB8] uppercase block text-center">
-                Estimated Design Investment
+                Estimated Project Cost
               </span>
               
               <div className="text-center py-2 relative">

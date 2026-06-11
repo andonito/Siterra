@@ -3,24 +3,24 @@ import { ServiceItem, PricingPackage, CarePlan, FAQItem, DemoSite } from "./type
 export const PROBLEM_CARDS = [
   {
     number: "01",
-    metric: "81% of Local Leads",
+    metric: "First Impression",
     title: "Outdated website = less trust",
-    description: "Your website is your digital storefront. If it looks outdated, slow, or generic, visitors automatically assume your physical services are second-rate too. Modern design is the premium tax on high-value contracts.",
+    description: "Your website is your digital storefront. If it looks outdated, slow, or generic, visitors automatically assume your physical services are second-rate too. Modern design builds immediate trust.",
     impact: "Impact: High bounce rate & lost credibility."
   },
   {
     number: "02",
-    metric: "Over 68% Mobile Views",
-    title: "Weak mobile experience = missed leads",
-    description: "Most local searches happen on the move or from a couch. If your pricing lists, address maps, or phone buttons are hard to tap or scale weirdly on a phone, prospective clients will tap 'Back' and call the next listing.",
-    impact: "Impact: 2x higher friction on quote submissions."
+    metric: "Mobile First",
+    title: "Weak mobile experience = missed calls",
+    description: "Most local searches happen on smartphones. If your pricing lists, address maps, or phone buttons are hard to tap or scale weirdly, prospective clients will tap 'Back' and call a competitor instead.",
+    impact: "Impact: Higher friction on mobile phone navigation."
   },
   {
     number: "03",
-    metric: "90% Lost Response",
-    title: "No clear action = fewer client calls",
-    description: "A pretty website without high-contrast click-to-call banners, localized maps, structured quote wizards, or calendar endpoints is a missed opportunity. Your site must guide they eye to a transaction, not just look nice.",
-    impact: "Impact: Costly ad clicks that fail to generate phone alerts."
+    metric: "Clear Actions",
+    title: "No clear action = fewer quote requests",
+    description: "A pretty website without high-contrast click-to-call buttons, clear service outlines, or simple contact forms is a missed opportunity. Your site must guide the eye to take action.",
+    impact: "Impact: Paid advert clicks that leave without calling."
   }
 ];
 
@@ -74,31 +74,31 @@ export const SERVICES: ServiceItem[] = [
   {
     icon: "Layout",
     title: "Custom Website Design",
-    description: "Bespoke digital architecture. No generic themes. We design original visual structures crafted to position your brand as the supreme local authority.",
+    description: "Bespoke design custom-tailored to your company. We build premium, original layouts to make your business look like the trusted local choice.",
     tag: "High-End Visuals"
   },
   {
     icon: "Zap",
     title: "Landing Pages",
-    description: "Hyper-focused, lighting-fast single pages engineered strictly to convert paid Google/Facebook ad traffic directly into inbound phone calls.",
+    description: "High-performance single pages designed around clear calls to action to help turn paid Google or Facebook ad traffic into booked calls.",
     tag: "Paid Ads Catalyst"
   },
   {
     icon: "ShieldCheck",
     title: "Service Business Websites",
-    description: "Structured specifically for contractors, detailers, spas, and clinics. Built on an optimized user path that prioritizes confidence and calls.",
+    description: "Structured specifically for trades, contractors, and local businesses. Built on a clean layout that guides users directly to request a quote or call.",
     tag: "Conversion-first"
   },
   {
     icon: "Search",
     title: "Local SEO Structure",
-    description: "Engineered with semantic HTML headers, schema markup, and neighborhood directory hooks so Google rewards your site with top-tier rankings.",
+    description: "Engineered with clean code, modern title tag architectures, and structured service areas to help search engines understand where and what you serve.",
     tag: "Organic Fuel"
   },
   {
     icon: "Mail",
     title: "Lead Capture Forms",
-    description: "Sleek multi-step wizards that pre-qualify leads with budget, scope, and vehicle/home details before they ever ping your phone.",
+    description: "Streamlined quote request forms that pre-qualify leads with project details, photos, or contact info before pings reach your phone.",
     tag: "Smart Pipelines"
   },
   {
@@ -110,25 +110,25 @@ export const SERVICES: ServiceItem[] = [
   {
     icon: "RefreshCw",
     title: "Website Redesigns",
-    description: "We migrate your old, slow, Wordpress or Wix site to a modern high-performance layout, saving all your indexed Google rankings in the process.",
+    description: "We migrate your old, slow WordPress or Wix site to a modern, high-performance layout, protecting as much of your existing SEO value as possible.",
     tag: "Zero-Risk Migration"
   },
   {
     icon: "Server",
     title: "Hosting & Launch Setup",
-    description: "Blazing fast global Edge network deployment. Secure SSL keys, custom domains, and instant cache updates included with every build.",
+    description: "Reliable high-speed edge hosting. We secure your SSL certificate, configure custom domains, and handle all launch logistics.",
     tag: "Enterprise Speed"
   },
   {
     icon: "BarChart3",
     title: "Analytics & Tracking",
-    description: "Full Google Analytics (GA4) and Meta Pixel events setup. Monitor precisely which page, button, or device earned you each client.",
+    description: "Google Analytics integration to track your website visits. See exactly which pages or services are driving your customer inquiries.",
     tag: "Pixel-Perfect Audits"
   },
   {
     icon: "TrendingUp",
     title: "Conversion Strategy",
-    description: "Professional copywriting, design triggers, and micro-interactions optimized to increase your lead count by 30% to 150%+.",
+    description: "Clear copywriting, user-friendly forms, and visible click-to-call buttons organized to help grow your local lead pipeline.",
     tag: "Revenue Focus"
   }
 ];
@@ -136,9 +136,9 @@ export const SERVICES: ServiceItem[] = [
 export const PACKAGES: PricingPackage[] = [
   {
     id: "launch",
-    name: "Siterra Launch",
+    name: "Launch Site",
     price: "$997",
-    description: "Best for new start-ups or small local contractors needing an immediate, elite single-page digital storefront.",
+    description: "Best for new start-ups or small local contractors needing an immediate, premium single-page digital storefront.",
     popular: false,
     ctaText: "Start with Launch",
     deliveryTime: "3-5 Business Days",
@@ -155,10 +155,10 @@ export const PACKAGES: PricingPackage[] = [
   },
   {
     id: "local",
-    name: "Siterra Local",
+    name: "Local Website",
     price: "$2,500",
-    description: "Our core service package designed for local specialty trades wanting to dominate their service area.",
-    popular: false,
+    description: "Our core service package designed for local specialty trades wanting to look highly trusted in their service area.",
+    popular: true,
     ctaText: "Build My Local Site",
     deliveryTime: "2-3 Weeks",
     features: [
@@ -174,17 +174,17 @@ export const PACKAGES: PricingPackage[] = [
   },
   {
     id: "pro",
-    name: "Siterra Pro",
+    name: "Premium Growth Site",
     price: "$5,000",
-    description: "For thriving businesses seeking consistent top-dollar leads, fully branded design direction, and smart integrations.",
-    popular: true,
-    ctaText: "Go Pro & Dominate",
+    description: "For thriving businesses seeking consistent, high-value leads, fully custom design direction, and smart integrations.",
+    popular: false,
+    ctaText: "Go Premium & Grow",
     deliveryTime: "3-4 Weeks",
     features: [
       "6 to 10 Custom Structured Pages",
       "Bespoke High-End Design System",
       "Hyper-Targeted Service & City Pages",
-      "Psychology-Back Copywriting Suite",
+      "Psychology-Backed Copywriting",
       "Multi-Step Pre-Qualifying Quote Form",
       "Dynamic Rich Media Gallery",
       "GA4 Analytics & Meta Pixel Tracking",
@@ -195,64 +195,64 @@ export const PACKAGES: PricingPackage[] = [
   },
   {
     id: "authority",
-    name: "Siterra Authority",
+    name: "Authority Website",
     price: "$10,000+",
     description: "The complete premium corporate system. Designed for established companies demanding absolute market dominance.",
     popular: false,
     ctaText: "Request Custom Quote",
     deliveryTime: "4-6 Weeks",
     features: [
-      "Elite Full Website Strategy Workshop",
-      "Deep-Dive Competitor SEO Map",
+      "Full Website Strategy Session",
+      "Deep-Dive Competitor Search Audit",
       "10 to 15 Dedicated High-Value Pages",
-      "Sleek High-End Physics-Based Animations",
-      "Smart Multi-Route Forms & Automation Logs",
-      "Custom Dashboard / Intake Portals",
-      "Advanced Search Intent SEO Engine",
-      "Live Dedicated Support & Training",
-      "Netlify / AWS Cloud Scaling Pipeline"
+      "Sleek Premium Scroll Transitions",
+      "Pre-qualifying Lead Pathways",
+      "Custom Brand Style Guide",
+      "Advanced Search Intent SEO Setup",
+      "Live Dedicated Support & Walkthrough",
+      "Speed Optimized Edge Deployment"
     ]
   }
 ];
 
 export const CARE_PLANS: CarePlan[] = [
   {
-    name: "Care Plan",
+    name: "Essential Care",
     price: "$99/mo",
     description: "Worry-free maintenance, secure backups, and small updates on demand.",
     features: [
-      "Ultra-Secure Hosting Management",
+      "Secure Hosting Management",
       "Automatic Daily Backups",
-      "Active SSL Certificate Auditing",
+      "Active SSL Certificate Checks",
       "Secure Form Endpoint Monitoring",
       "Up to 30 Minutes of Content Edits"
     ]
   },
   {
-    name: "Growth Plan",
+    name: "Growth Care",
     price: "$249/mo",
     description: "Ideal for growth-oriented companies actively adjusting services or pricing.",
     badge: "Most Popular Option",
     features: [
-      "Everything in Basic Care",
+      "Everything in Essential Care",
       "Up to 2 Hours of Custom Design & Content Edits",
-      "Monthly Page Performance Diagnostics",
-      "Google Search Console Indexing Audits",
-      "Subtle UX Adjustments for Conversions",
-      "Priority Email & Slack Support"
+      "Monthly Page Performance Audits",
+      "Google Search Console Indexing Reports",
+      "Subtle Layout Optimizations for Conversions",
+      "Priority Email & text/phone Support"
     ]
   },
   {
-    name: "Scale Plan",
+    name: "Scale Care",
     price: "$499+/mo",
     description: "Continuous organic scaling, technical SEO support, and software integration.",
     features: [
-      "Everything in Growth Plan",
-      "New City or Locational Page Drafts",
+      "Everything in Growth Care",
+      "New Service or Location Page Drafts",
       "CRM & Booking Gateway Support",
-      "Conversion Event Lead Tracking Logs",
+      "Conversion Lead Tracking Setup",
       "Dedicated Monthly Performance Call",
-      "1-Hour Guaranteed Update Turnaround"
+      "Fast Support Update Turnaround"
     ]
   }
 ];
@@ -260,30 +260,30 @@ export const CARE_PLANS: CarePlan[] = [
 export const FAQS: FAQItem[] = [
   {
     question: "How fast can you build my website?",
-    answer: "Our Siterra Launch single-page sites can be delivered in just 3 to 5 business days from receiving your assets. Full custom websites like of 'Siterra Pro' pack usually require 3 to 4 weeks depending on how custom the copywriting, design systems, and software configurations are. We agree on a strict launch date before any deposit is paid."
+    answer: "Our Siterra Launch single-page sites can be delivered in just 3 to 5 business days from receiving your assets. Full custom websites like Siterra Pro usually require 3 to 4 weeks depending on how custom the copywriting, design systems, and software configurations are. We agree on a strict launch date before any deposit is paid."
   },
   {
     question: "Do I need to provide the copy and photography?",
-    answer: "You can supply images or drafts if you have them, but you don't need to. Siterra specializes in high-fidelity copywriting and layout structures. We select premium, high-resolution license-free local trade photography and write copy designed around trust and local Google searches. All of this is ready to preview on our first review layout."
+    answer: "You can supply images or drafts if you have them, but you don't need to. Siterra specializes in high-quality local service copywriting and layout structures. We select premium, high-resolution license-free local trade photography and write clear copy designed around building trust and outlining your services. All of this is ready to preview on our first review."
   },
   {
     question: "Can you redesign my existing website?",
-    answer: "Yes, this is one of our primary solutions. We recreate slow, outdated Wordpress, Wix, or Squarespace sights into high-speed, modern React frameworks. We map your current URLs carefully so that you preserve 100% of your existing SEO ranks and backlinks while instantly boosting your conversion rate."
+    answer: "Yes, this is one of our primary solutions. We recreate slow, outdated WordPress, Wix, or Squarespace sites into high-speed, modern React frameworks. We map your current page paths carefully to protect as much of your existing SEO value as possible while improving your website's ability to turn visitors into leads."
   },
   {
     question: "Do you work with businesses outside Florida?",
-    answer: "Siterra works with high-value contractors, auto service companies, tradesmen, and commercial firms across the entire United States and Canada. By operating entirely digitally with our high-tech interactive preview simulators, we keep production streamlined, clear, and efficient."
+    answer: "Siterra works with quality contractors, home service companies, tradesmen, and local firms across the entire country. Regardless of your location, we keep production streamlined, clear, and efficient using our modern interactive visual previews."
   },
   {
     question: "Can you connect form leads, booking systems, or CRM tools?",
-    answer: "Absolutely. We routinely integrate tools like Housecall Pro, Jobber, ServiceTitan, Calendly, Acuity, Mailchimp, and Zapier custom webhooks. We make sure that whenever a prospective client types a request on your site, you instantly get a phone text notification or a new entry inside your business pipeline."
+    answer: "Absolutely. We routinely integrate tools like Housecall Pro, Jobber, ServiceTitan, Calendly, Acuity, Mailchimp, and Zapier custom webhooks. We make sure that whenever a prospective client submits a request on your site, you instantly get an email notification or a new entry inside your business pipeline."
   },
   {
-    question: "Do you offer premium website hosting?",
-    answer: "Yes. Siterra websites are built with static, modern edge-optimized frameworks, then hosted on premium globally distributed server networks (Netlify/Vercel CDN). This yields 100/100 performance scores on Google Lighthouse, ensuring zero loading delay for your visitors and maximum SEO organic ranking points."
+    question: "Do you offer website hosting?",
+    answer: "Yes. Siterra websites are built with static, modern static frameworks, then hosted on premium globally distributed server networks (Netlify/Vercel CDN). This delivers outstanding performance scores on Google Lighthouse, ensuring minimal loading delay for your visitors and a solid technical SEO foundation."
   },
   {
     question: "Why do custom website prices vary so much?",
-    answer: "A simple landing page is a single layout designed to capture instant inquiry metrics. A custom multi-page 'Authority' platform, conversely, requires extensive competitor SEO auditing, custom service page structures for many distinct branches, localized booking triggers, interactive widgets, copywriting, and custom branding architectures. We match our services strictly to your business scale to ensure your investment drives clear revenue."
+    answer: "A simple landing page is a single layout designed to capture instant inquiries. A custom multi-page package, conversely, requires extensive competitor research, dedicated page structures for your distinct services, localized forms, copywriting, and custom layouts. We match our services strictly to your business scale to ensure your investment drives clear revenue."
   }
 ];

@@ -29,9 +29,9 @@ const PORTFOLIO_SITES: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208073/Recording_2026-06-11_155558_occ3xa.mp4",
     liveUrl: "https://taupe-dusk-bf215b.netlify.app/",
     metrics: [
-      { label: "Lead Conversion", value: "+42%" },
-      { label: "Mobile Bounce", value: "-68%" },
-      { label: "TTFB Speed", value: "0.18s" }
+      { label: "Mobile-first layout", value: "Verified Active" },
+      { label: "Click-to-call CTA", value: "Direct Tap" },
+      { label: "Quote form ready", value: "Integrated" }
     ],
     features: ["Nano-Ceramic Shade Selector", "Automotive Schema Integration", "Netlify Edge Deployment", "Instant Lead Alerts"],
     accentColor: "#10B981", // Emerald
@@ -46,9 +46,9 @@ const PORTFOLIO_SITES: PortfolioItem[] = [
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208069/Recording_2026-06-11_155646_zzqivf.mp4",
     liveUrl: "https://overtimesolutions.netlify.app/",
     metrics: [
-      { label: "Lighthouse Performance", value: "100/100" },
-      { label: "Dispatch Response", value: "23m Avg" },
-      { label: "Inbound Calls", value: "+56%" }
+      { label: "Fast deployment", value: "Edge Hosted" },
+      { label: "Service-area structure", value: "Local SEO" },
+      { label: "Mobile-first layout", value: "Fully Fluid" }
     ],
     features: ["Pre-Qualified Intake Form", "Localized Map Dispatchers", "Direct CRM Stream", "Click-to-Call Emergency Dialer"],
     accentColor: "#2563FF", // Cobalt Blue

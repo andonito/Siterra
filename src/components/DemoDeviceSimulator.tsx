@@ -172,7 +172,7 @@ export default function DemoDeviceSimulator({
                 ))}
                 <span className="font-bold text-white ml-1">4.9 / 5.0</span>
               </div>
-              <span>Based on 426 local Google reviews in Sarasota</span>
+              <span>Based on 426 reviews in your local service area</span>
             </div>
           </div>
         );
@@ -182,7 +182,7 @@ export default function DemoDeviceSimulator({
           <div className="bg-slate-50 text-slate-900 h-full overflow-y-auto flex flex-col font-sans select-none scrollbar-none">
             {/* Urgent Tag banner */}
             <div className="bg-red-600 text-white text-center py-1 text-[9px] font-bold uppercase tracking-wider animate-pulse">
-              🚨 Active Dispatchers in Sarasota Area - Emergency Service Available
+              🚨 Active Dispatchers in Your Area - Emergency Service Available
             </div>
 
             {/* Demo Header */}
@@ -196,7 +196,7 @@ export default function DemoDeviceSimulator({
             {/* Hero Section */}
             <div className="p-4 bg-gradient-to-br from-blue-900 via-blue-800 to-sky-700 text-white text-center">
               <h3 className="font-display font-extrabold text-lg leading-tight mb-1">
-                Broken Sprinklers? We're Already in Sarasota.
+                Broken Sprinklers? We're Already in Your Area.
               </h3>
               <p className="text-[10.5px] text-blue-150 mb-3 max-w-xs mx-auto">
                 No dry lawns or high water bills. Count on five-star, fully licensed sprinkler repair & system diagnostics.
@@ -216,7 +216,7 @@ export default function DemoDeviceSimulator({
                 <div className="w-[1px] h-6 bg-white/20" />
                 <div>
                   <div className="font-extrabold text-[#FBBF24]">★ 5.0 Rated</div>
-                  <div className="text-[9px] text-zinc-200">Sarasota Standard</div>
+                  <div className="text-[9px] text-zinc-200">Local Yard Standard</div>
                 </div>
               </div>
             </div>
@@ -288,8 +288,8 @@ export default function DemoDeviceSimulator({
             <div className="p-3.5 bg-slate-100 flex items-center gap-2.5 border-t border-slate-200">
               <MapPin className="w-5 h-5 text-red-500 shrink-0" />
               <div className="text-left leading-tight">
-                <span className="text-[10px] font-bold block">Active Sarasota Coverage</span>
-                <span className="text-[9px] text-slate-500 block">Downtown, Lakewood Ranch, Siesta Key & Palmer Ranch.</span>
+                <span className="text-[10px] font-bold block">Active Local Coverage</span>
+                <span className="text-[9px] text-slate-500 block">Serving downtown, surrounding suburbs, and the local metro area.</span>
               </div>
             </div>
 
@@ -353,13 +353,13 @@ export default function DemoDeviceSimulator({
                     {/* Simulated visual represent of premium garden */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
                     <div className="absolute inset-x-0 top-0 flex justify-between p-1">
-                      <span className="text-[8px] bg-[#10B981] text-black px-1.5 py-0.5 font-bold rounded">Completed: 2026</span>
+                      <span className="text-[8px] bg-[#10B981] text-black px-1.5 py-0.5 font-bold rounded">Completed Recently</span>
                     </div>
                     {/* Simulated foliage using vectors */}
                     <svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 inset-x-0 w-full opacity-35 text-[#10B981]">
                       <path d="M0,30 L20,10 L30,22 L55,5 L70,18 L90,12 L100,30 Z" fill="currentColor" />
                     </svg>
-                    <div className="relative z-10 text-[9px] font-bold text-white">Sarasota Modern Coastal</div>
+                    <div className="relative z-10 text-[9px] font-bold text-white">Premium Architectural Design</div>
                   </div>
 
                   <p className="text-[9px] text-[#A7F3D0] italic">
