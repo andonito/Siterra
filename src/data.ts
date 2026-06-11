@@ -38,7 +38,7 @@ export const DEMO_SITES: DemoSite[] = [
     phonePlaceholder: "(555) 846-8771",
     addressPlaceholder: "1098 Auto Plaza Blvd, Suite 4",
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208073/Recording_2026-06-11_155558_occ3xa.mp4",
-    liveUrl: "https://taupe-dusk-bf215b.netlify.app/"
+    liveUrl: "https://asapwindowtinting.com/"
   },
   {
     id: "sprinkler",
@@ -53,7 +53,7 @@ export const DEMO_SITES: DemoSite[] = [
     phonePlaceholder: "(555) 278-2356",
     addressPlaceholder: "Serving Your Local Metro Area",
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208069/Recording_2026-06-11_155646_zzqivf.mp4",
-    liveUrl: "https://overtimesolutions.netlify.app/"
+    liveUrl: "https://overtimesolutions.com/"
   },
   {
     id: "landscaping",
