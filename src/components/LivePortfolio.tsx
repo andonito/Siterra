@@ -10,6 +10,7 @@ interface PortfolioItem {
   description: string;
   videoUrl?: string;
   liveUrl: string;
+  displayUrl?: string;
   metrics: {
     label: string;
     value: string;
@@ -27,7 +28,8 @@ const PORTFOLIO_SITES: PortfolioItem[] = [
     tagline: "Prestige Nano-Ceramic Window Protection Studio",
     description: "A gorgeous, high-contrast digital darkroom experience engineered specifically for window tinting services. Features click-to-call mobile shortcuts, custom service tiers, and interactive shade simulators that boost contract sizes on auto make selection.",
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208073/Recording_2026-06-11_155558_occ3xa.mp4",
-    liveUrl: "https://asapwindowtinting.com/",
+    liveUrl: "https://taupe-dusk-bf215b.netlify.app/",
+    displayUrl: "asapwindowtinting.com",
     metrics: [
       { label: "Mobile-first layout", value: "Verified Active" },
       { label: "Click-to-call CTA", value: "Direct Tap" },
@@ -44,7 +46,8 @@ const PORTFOLIO_SITES: PortfolioItem[] = [
     tagline: "High-Performance Emergency Spray Repairs",
     description: "An emergency-optimized local services layout designed to convert stress into booked consultations. Implements multi-step client problem wizards, smart technician dispatch, and interactive coverage map nodes.",
     videoUrl: "https://res.cloudinary.com/dhf8b2oeg/video/upload/q_auto/f_auto/v1781208069/Recording_2026-06-11_155646_zzqivf.mp4",
-    liveUrl: "https://overtimesolutions.com/",
+    liveUrl: "https://overtimesolutions.netlify.app/",
+    displayUrl: "overtimesolutions.com",
     metrics: [
       { label: "Fast deployment", value: "Edge Hosted" },
       { label: "Service-area structure", value: "Local SEO" },
@@ -102,7 +105,7 @@ export default function LivePortfolio() {
                       <span className="w-2 h-2 rounded-full bg-[#27C93F]" />
                     </div>
                     <span className="text-[9.5px] text-[#A5ACB8]/70 font-mono tracking-tight select-none">
-                      {site.isReal ? site.liveUrl.replace("https://", "") : "siterra.co/verdant"}
+                      {site.isReal ? (site.displayUrl || site.liveUrl.replace("https://", "")) : "siterra.co/verdant"}
                     </span>
                     <span className="w-4 h-4" />
                   </div>

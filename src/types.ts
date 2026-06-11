@@ -12,6 +12,7 @@ export interface DemoSite {
   addressPlaceholder: string;
   videoUrl?: string;
   liveUrl?: string;
+  displayUrl?: string;
 }
 
 export interface ServiceItem {
