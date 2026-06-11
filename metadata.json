@@ -1,0 +1,6 @@
+{
+  "name": "Siterra",
+  "description": "Premium, conversion-focused websites for service businesses that want to look more trusted, generate better leads, and grow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
