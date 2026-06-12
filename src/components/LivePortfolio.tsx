@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
-import { ExternalLink, Copy, Check, Eye, Sparkles, TrendingUp, Cpu, Maximize2 } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import * as Lucide from "lucide-react";
+import { ExternalLink, Copy, Check, Eye, Sparkles, TrendingUp, Cpu, Maximize2, Play } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface PortfolioItem {
@@ -63,6 +64,16 @@ export default function LivePortfolio() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
   const [fullscreenVideoUrl, setFullscreenVideoUrl] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleCopyLink = (item: PortfolioItem, e: React.MouseEvent) => {
     e.preventDefault();
@@ -111,7 +122,7 @@ export default function LivePortfolio() {
                   </div>
 
                   {/* HTML5 Video Layer */}
-                  {site.videoUrl ? (
+                  {site.videoUrl && !isMobile ? (
                     <div className="w-full h-full pt-7 relative">
                       <video
                         src={site.videoUrl}
@@ -126,7 +137,7 @@ export default function LivePortfolio() {
                       <div className="absolute inset-0 pt-7 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
                         <button
                           onClick={() => setFullscreenVideoUrl(site.videoUrl || null)}
-                          className="p-2.5 bg-black/80 hover:bg-black border border-white/10 rounded-full text-white transition-all shadow-lg text-xs font-mono font-bold flex items-center gap-1.5"
+                          className="p-2.5 bg-black/80 hover:bg-black border border-white/10 rounded-full text-white transition-all shadow-lg text-xs font-mono font-bold flex items-center gap-1.5 cursor-pointer"
                           title="Maximize walkthrough video"
                         >
                           <Maximize2 className="w-4 h-4 text-blue-400" />
@@ -141,16 +152,34 @@ export default function LivePortfolio() {
                       </span>
                     </div>
                   ) : (
-                    /* Elegant placeholder if no video */
-                    <div className="w-full h-full pt-7 relative bg-gradient-to-br from-[#0B150F] via-emerald-950/20 to-[#05070A] flex flex-col justify-center items-center p-6 text-center select-none">
-                      {/* Subdued design vector graph */}
-                      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:16px_16px]" />
-                      <Sparkles className="w-8 h-8 text-[#D97706]/40 animate-pulse mb-2" />
-                      <span className="text-xs font-mono font-bold text-[#D97706] uppercase tracking-widest block">Client Quality Sandbox</span>
-                      <p className="text-[10px] text-zinc-500 max-w-xs mt-1">Design in active review with property estimator algorithms active below.</p>
+                    /* Elegant static cover on mobile, or placeholder if no video */
+                    <div 
+                      onClick={() => site.videoUrl && setFullscreenVideoUrl(site.videoUrl)}
+                      className={`w-full h-full pt-7 relative bg-gradient-to-br ${
+                        site.accentColor === "#10B981" 
+                          ? "from-[#081B15] via-[#04110D] to-[#05070A]" 
+                          : "from-[#0B1528] via-[#050D1D] to-[#05070A]"
+                      } flex flex-col justify-center items-center p-6 text-center select-none cursor-pointer group/poster`}
+                    >
+                      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
                       
-                      <span className="absolute bottom-2 left-2 bg-black/80 border border-white/5 px-2 py-0.5 rounded-md font-mono text-[8.5px] text-[#D97706]/85 font-bold">
-                        DRAFT SIMULATION
+                      {/* Play button indicator */}
+                      <div className="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center mb-1.5 group-hover/poster:scale-105 group-hover/poster:border-white/30 group-hover/poster:bg-white/10 transition-all duration-300 shadow-xl relative z-10">
+                        <Play className="w-4.5 h-4.5 text-white fill-white ml-0.5" />
+                      </div>
+
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest block relative z-10" style={{ color: site.accentColor }}>
+                        {site.category} Demo Showcase
+                      </span>
+                      <span className="font-display font-extrabold text-sm text-white mt-0.5 relative z-10">
+                        {site.name} Preview Walkthrough
+                      </span>
+                      <p className="text-[9.5px] text-zinc-500 max-w-xs mt-1 relative z-10 leading-normal">
+                        Tap here to launch a gorgeous high-fidelity 30-second virtual tour.
+                      </p>
+                      
+                      <span className="absolute bottom-2 left-2 bg-black/85 border border-white/10 px-2 py-0.5 rounded-md font-mono text-[8.5px] text-zinc-400 font-bold uppercase">
+                        TAP TO WATCH TOUR
                       </span>
                     </div>
                   )}

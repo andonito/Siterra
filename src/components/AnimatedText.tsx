@@ -8,8 +8,20 @@ interface AnimatedTextProps {
 export default function AnimatedText({ text, className = "" }: AnimatedTextProps) {
   const containerRef = useRef<HTMLParagraphElement>(null);
   const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -34,7 +46,13 @@ export default function AnimatedText({ text, className = "" }: AnimatedTextProps
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
+
+  // If on a mobile or tablet size screen, render a pristine standard text block
+  // to maximize browser layout efficiency, battery life, and rendering speed.
+  if (isMobile) {
+    return <p className={className}>{text}</p>;
+  }
 
   const chars = text.split("");
   const totalChars = chars.length;
@@ -45,8 +63,7 @@ export default function AnimatedText({ text, className = "" }: AnimatedTextProps
         // Individual character target progress
         const targetProgress = index / totalChars;
         // Map current progress to a value from 0.2 to 1.0 (opacity)
-        // With a nice local ramp up so it's not a hard toggle
-        const charWeight = 0.05; // range over which letter transitions
+        const charWeight = 0.05;
         let opacity = 0.2;
         if (progress >= targetProgress) {
           const ratio = Math.min(1, (progress - targetProgress) / charWeight);

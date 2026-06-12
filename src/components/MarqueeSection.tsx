@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const IMAGE_ROW_1 = [
   "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
@@ -28,40 +28,27 @@ const IMAGE_ROW_2 = [
 ];
 
 export default function MarqueeSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [scrollOffset, setScrollOffset] = useState(0);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionTopFromDoc = window.scrollY + rect.top;
-      
-      // Calculate offset based on user's exact specification formula
-      const offset = (window.scrollY - sectionTopFromDoc + window.innerHeight) * 0.3;
-      setScrollOffset(offset);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run initially
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Triple the arrays for a seamless scrolling effect
-  const row1Images = [...IMAGE_ROW_1, ...IMAGE_ROW_1, ...IMAGE_ROW_1];
-  const row2Images = [...IMAGE_ROW_2, ...IMAGE_ROW_2, ...IMAGE_ROW_2];
+  // Limit unique images loaded on mobile to save bandwidth and CPU cycles
+  const row1Sources = isMobile ? IMAGE_ROW_1.slice(0, 3) : IMAGE_ROW_1;
+  const row2Sources = isMobile ? IMAGE_ROW_2.slice(0, 3) : IMAGE_ROW_2;
 
-  // Align positions based on scroll offset calculations
-  const translateXRow1 = scrollOffset - 250;
-  const translateXRow2 = -(scrollOffset - 250);
+  // Triple arrays for seamless looping flow animations
+  const row1Images = [...row1Sources, ...row1Sources, ...row1Sources];
+  const row2Images = [...row2Sources, ...row2Sources, ...row2Sources];
 
   return (
     <section 
-      ref={sectionRef}
       className="bg-[#05070A] py-16 sm:py-20 md:py-24 overflow-hidden relative"
       id="marquee-gallery"
     >
@@ -78,29 +65,26 @@ export default function MarqueeSection() {
         </p>
       </div>
 
-      <div className="space-y-4 relative z-10">
-        {/* Row 1 - Moves RIGHT on scroll */}
-        <div className="w-full flex">
-          <div 
-            style={{
-              transform: `translate3d(${translateXRow1}px, 0px, 0px)`,
-              willChange: "transform",
-            }}
-            className="flex gap-4 transition-transform duration-75 ease-out select-none"
-          >
+      <div className="space-y-4 relative z-10 overflow-hidden w-full">
+        {/* Row 1 - Moves LEFT continuously at high speed */}
+        <div className="w-full overflow-hidden flex whitespace-nowrap mask-radial opacity-90">
+          <div className="flex gap-4 animate-marquee-left select-none will-change-transform">
             {row1Images.map((src, index) => (
               <div 
                 key={`r1-${index}`} 
-                className="w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] shrink-0 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/5 relative group shadow-lg"
+                className="w-[240px] sm:w-[320px] md:w-[400px] aspect-[16/10] shrink-0 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/5 relative group shadow-lg"
               >
                 {/* Visual template sheen overlay */}
                 <span className="absolute top-2.5 right-2.5 bg-black/80 backdrop-blur border border-white/10 text-white font-mono text-[9px] font-extrabold tracking-wider uppercase py-0.5 px-2 rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  DESIGN #{index % IMAGE_ROW_1.length + 1}
+                  DESIGN #{index % row1Sources.length + 1}
                 </span>
                 <img 
                   src={src} 
                   alt="High Fidelity Website Showcase" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                  width="400"
+                  height="250"
+                  decoding="async"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
@@ -109,27 +93,24 @@ export default function MarqueeSection() {
           </div>
         </div>
 
-        {/* Row 2 - Moves LEFT on scroll */}
-        <div className="w-full flex">
-          <div 
-            style={{
-              transform: `translate3d(${translateXRow2}px, 0px, 0px)`,
-              willChange: "transform",
-            }}
-            className="flex gap-4 transition-transform duration-75 ease-out select-none"
-          >
+        {/* Row 2 - Moves RIGHT continuously */}
+        <div className="w-full overflow-hidden flex whitespace-nowrap mask-radial opacity-90">
+          <div className="flex gap-4 animate-marquee-right select-none will-change-transform">
             {row2Images.map((src, index) => (
               <div 
                 key={`r2-${index}`} 
-                className="w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] shrink-0 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/5 relative group shadow-lg"
+                className="w-[240px] sm:w-[320px] md:w-[400px] aspect-[16/10] shrink-0 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/5 relative group shadow-lg"
               >
                 <span className="absolute top-2.5 right-2.5 bg-black/80 backdrop-blur border border-white/10 text-white font-mono text-[9px] font-extrabold tracking-wider uppercase py-0.5 px-2 rounded-md z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  LAYOUT #{index % IMAGE_ROW_2.length + 1}
+                  LAYOUT #{index % row2Sources.length + 1}
                 </span>
                 <img 
                   src={src} 
                   alt="High Fidelity Website Showcase" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                  width="400"
+                  height="250"
+                  decoding="async"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />

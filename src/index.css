@@ -8,6 +8,18 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Kanit", "Plus Jakarta Sans", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --animate-marquee-left: marquee-left 40s linear infinite;
+  --animate-marquee-right: marquee-right 40s linear infinite;
+
+  @keyframes marquee-left {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-33.3333%, 0, 0); }
+  }
+  @keyframes marquee-right {
+    0% { transform: translate3d(-33.3333%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
 }
 
 @layer utilities {

@@ -18,8 +18,20 @@ export default function Magnet({
   const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("translate3d(0px, 0px, 0px)");
   const [transition, setTransition] = useState(inactiveTransition);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!ref.current) return;
 
@@ -47,7 +59,12 @@ export default function Magnet({
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [padding, strength, activeTransition, inactiveTransition]);
+  }, [padding, strength, activeTransition, inactiveTransition, isMobile]);
+
+  // On mobile touchscreens, immediately return plain children to avoid wrapper overhead and mouse calculations
+  if (isMobile) {
+    return <>{children}</>;
+  }
 
   return (
     <div

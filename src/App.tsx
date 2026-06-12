@@ -219,24 +219,20 @@ export default function App() {
 
               {/* Conversion Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Magnet padding={180} strength={4}>
-                  <button
-                    onClick={() => openConsultation("Hero - Book a Strategy Call")}
-                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-7.5 rounded-xl text-sm font-mono tracking-wider uppercase transition-all shadow-[0_4px_24px_rgba(37,99,255,0.3)] hover:shadow-[0_4px_36px_rgba(37,99,255,0.55)] cursor-pointer flex items-center justify-center gap-2 group hover:scale-[1.01]"
-                  >
-                    Book a Free Website Strategy Call
-                    <ArrowRight className="w-4.5 h-4.5 text-white transition-transform group-hover:translate-x-1" />
-                  </button>
-                </Magnet>
+                <button
+                  onClick={() => openConsultation("Hero - Book a Strategy Call")}
+                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-7.5 rounded-xl text-sm font-mono tracking-wider uppercase transition-all shadow-[0_4px_24px_rgba(37,99,255,0.3)] hover:shadow-[0_4px_36px_rgba(37,99,255,0.55)] cursor-pointer flex items-center justify-center gap-2 group hover:scale-[1.01]"
+                >
+                  Book a Free Website Strategy Call
+                  <ArrowRight className="w-4.5 h-4.5 text-white transition-transform group-hover:translate-x-1" />
+                </button>
                 
-                <Magnet padding={120} strength={3}>
-                  <a
-                    href="#work"
-                    className="bg-transparent border border-white/12 text-zinc-300 hover:text-white hover:bg-white/5 font-bold py-4 px-7 text-center rounded-xl text-sm font-mono tracking-wider uppercase transition-all flex items-center justify-center gap-1.5"
-                  >
-                    View Demo Sites
-                  </a>
-                </Magnet>
+                <a
+                  href="#work"
+                  className="bg-transparent border border-white/12 text-zinc-300 hover:text-white hover:bg-white/5 font-bold py-4 px-7 text-center rounded-xl text-sm font-mono tracking-wider uppercase transition-all flex items-center justify-center gap-1.5"
+                >
+                  View Demo Sites
+                </a>
               </div>
 
               {/* Trust badges below buttons */}
@@ -387,9 +383,9 @@ export default function App() {
         id="problem"
         className="py-20 lg:py-28 bg-[#0E1117] border-y border-white/5 relative"
       >
-        {/* Floating Corner 3D Objects */}
-        <Floating3DObject type="glass" className="absolute top-[6%] right-[4%] w-20 sm:w-28 md:w-32 opacity-40 xl:opacity-90 z-10" duration={6.5} delay={0.4} />
-        <Floating3DObject type="group" className="absolute bottom-[8%] left-[3%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={7.5} delay={1.1} />
+        {/* Floating Corner 3D Objects - Hidden on mobile to optimize layout shift and asset weight */}
+        <Floating3DObject type="glass" className="hidden sm:block absolute top-[6%] right-[4%] w-20 sm:w-28 md:w-32 opacity-40 xl:opacity-90 z-10" duration={6.5} delay={0.4} />
+        <Floating3DObject type="group" className="hidden sm:block absolute bottom-[8%] left-[3%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={7.5} delay={1.1} />
 
         <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-blue-900/5 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/2 -translate-y-1/2" />
 
@@ -584,9 +580,9 @@ export default function App() {
         id="why-us"
         className="py-20 lg:py-28 bg-[#05070A] relative"
       >
-        {/* Floating Corner 3D Objects */}
-        <Floating3DObject type="moon" className="absolute top-[8%] left-[2%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={6} delay={0.2} />
-        <Floating3DObject type="lego" className="absolute bottom-[10%] right-[3%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={7} delay={0.8} />
+        {/* Floating Corner 3D Objects - Hidden on mobile to optimize layout shift and asset weight */}
+        <Floating3DObject type="moon" className="hidden sm:block absolute top-[8%] left-[2%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={6} delay={0.2} />
+        <Floating3DObject type="lego" className="hidden sm:block absolute bottom-[10%] right-[3%] w-24 sm:w-32 md:w-36 opacity-40 xl:opacity-90 z-10" duration={7} delay={0.8} />
 
         <div className="absolute top-1/3 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
         
@@ -1142,23 +1138,19 @@ export default function App() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4.5 w-full max-w-lg pt-2">
-            <Magnet padding={120} strength={3}>
-              <button
-                onClick={() => openConsultation("Final CTA - Book call")}
-                className="w-48 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl text-xs font-mono tracking-wider uppercase transition-all shadow-[0_4px_24px_rgba(37,99,255,0.3)] hover:scale-[1.01] hover:shadow-[0_4px_36px_rgba(37,99,255,0.5)] cursor-pointer"
-              >
-                Book Strategy Call
-              </button>
-            </Magnet>
+            <button
+              onClick={() => openConsultation("Final CTA - Book call")}
+              className="w-48 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-xl text-xs font-mono tracking-wider uppercase transition-all shadow-[0_4px_24px_rgba(37,99,255,0.3)] hover:scale-[1.01] hover:shadow-[0_4px_36px_rgba(37,99,255,0.5)] cursor-pointer"
+            >
+              Book Strategy Call
+            </button>
             
-            <Magnet padding={100} strength={3}>
-              <button
-                onClick={() => openConsultation("Final CTA - Quote estimate")}
-                className="w-48 bg-transparent border border-white/12 text-zinc-300 hover:text-white hover:bg-white/5 font-bold py-4 px-6 rounded-xl text-xs font-mono tracking-wider uppercase transition-all cursor-pointer"
-              >
-                Request Website Quote
-              </button>
-            </Magnet>
+            <button
+              onClick={() => openConsultation("Final CTA - Quote estimate")}
+              className="w-48 bg-transparent border border-white/12 text-zinc-300 hover:text-white hover:bg-white/5 font-bold py-4 px-6 rounded-xl text-xs font-mono tracking-wider uppercase transition-all cursor-pointer"
+            >
+              Request Website Quote
+            </button>
           </div>
 
           <div className="flex items-center justify-center gap-2 text-[10.5px] text-zinc-500 pt-1.5 font-mono">
