@@ -9,7 +9,7 @@ interface PackageCalculatorProps {
 export default function PackageCalculator({ onOpenConsultation }: PackageCalculatorProps) {
   const [selectedBasePackage, setSelectedBasePackage] = useState<string>("pro");
   const [pageCount, setPageCount] = useState<number>(8);
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(["crm", "seo"]);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
   const addonsList = [
     {
