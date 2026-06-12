@@ -31,7 +31,6 @@ import PackageCalculator from "./components/PackageCalculator";
 import LeadModal from "./components/LeadModal";
 import Magnet from "./components/Magnet";
 import AnimatedText from "./components/AnimatedText";
-import MarqueeSection from "./components/MarqueeSection";
 import Floating3DObject from "./components/Floating3DObject";
 import { PROBLEM_CARDS, SERVICES, PACKAGES, CARE_PLANS, FAQS } from "./data";
 
@@ -429,9 +428,6 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      {/* MARQUEE GALLERY SECTION */}
-      <MarqueeSection />
 
       {/* 5. SERVICES SECTION */}
       <section
