@@ -90,23 +90,20 @@ export default function App() {
 
           {/* Desktop Navigation links */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#A5ACB8]">
-            <a href="#work" className="hover:text-blue-600 transition-colors">Demo Sites</a>
             <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
             <a href="#pricing" className="hover:text-blue-600 transition-colors">Pricing</a>
             <a href="#process" className="hover:text-blue-600 transition-colors">Process</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
           </nav>
-
+          
           {/* Call-to-action on right */}
           <div className="hidden md:flex items-center gap-4">
-            <Magnet padding={100} strength={3}>
-              <button
-                onClick={() => openConsultation("Header - Book a Call")}
-                className="px-6 py-2.5 bg-white text-[#05070A] text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg cursor-pointer"
-              >
-                Book a Call
-              </button>
-            </Magnet>
+            <button
+              onClick={() => openConsultation("Header - Book a Call")}
+              className="px-6 py-2.5 bg-white text-[#05070A] text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg cursor-pointer"
+            >
+              Book a Call
+            </button>
           </div>
 
           {/* Mobile hamburger menu trigger */}
@@ -123,13 +120,6 @@ export default function App() {
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-x-0 top-[60px] bg-[#0E1117] border-b border-white/8 shadow-2xl p-6.5 space-y-5 flex flex-col z-50 animate-slideDown">
             <div className="grid grid-cols-2 gap-3.5">
-              <a 
-                href="#work" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
-              >
-                Demo Sites
-              </a>
               <a 
                 href="#services" 
                 onClick={() => setMobileMenuOpen(false)}
@@ -154,7 +144,7 @@ export default function App() {
               <a 
                 href="#faq" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 bg-[#05070A] border border-white/5 rounded-xl col-span-2 text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
+                className="p-3 bg-[#05070A] border border-white/5 rounded-xl text-center font-display font-bold text-sm hover:border-blue-500 transition-colors"
               >
                 FAQ
               </a>
@@ -166,16 +156,6 @@ export default function App() {
                 className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-xs font-mono uppercase tracking-wider text-center cursor-pointer shadow-md"
               >
                 Book Free Strategy Call
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  const el = document.getElementById("work");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-full bg-transparent text-zinc-400 font-bold py-3 rounded-xl text-xs font-mono uppercase tracking-wider border border-white/10 text-center hover:text-white"
-              >
-                View Live Mockups
               </button>
             </div>
           </div>
@@ -228,10 +208,10 @@ export default function App() {
                 </button>
                 
                 <a
-                  href="#work"
+                  href="#pricing"
                   className="bg-transparent border border-white/12 text-zinc-300 hover:text-white hover:bg-white/5 font-bold py-4 px-7 text-center rounded-xl text-sm font-mono tracking-wider uppercase transition-all flex items-center justify-center gap-1.5"
                 >
-                  View Demo Sites
+                  View Packages
                 </a>
               </div>
 
@@ -242,7 +222,7 @@ export default function App() {
                 </p>
                 <div className="flex flex-wrap gap-x-6.5 gap-y-3.5 text-xs text-zinc-400">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle className="w-4 h-4 text-blue-500" /> Live Demo Sites Available
+                    <CheckCircle className="w-4 h-4 text-blue-500" /> Premium Styled Visuals
                   </span>
                   <span className="flex items-center gap-1.5">
                     <CheckCircle className="w-4 h-4 text-blue-500" /> Mobile-First Build
@@ -452,69 +432,6 @@ export default function App() {
 
       {/* MARQUEE GALLERY SECTION */}
       <MarqueeSection />
-
-      {/* 4. PORTFOLIO / DEMO SITES SECTION */}
-      <section
-        id="work"
-        className="py-20 lg:py-28 relative bg-[#05070A]"
-      >
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-20">
-          
-          {/* Subsection 1: Real-World Client Success Stories & Deployments */}
-          <div className="space-y-12">
-            <div className="max-w-3xl mx-auto space-y-4">
-              <span className="font-mono text-xs font-bold text-blue-500 tracking-widest uppercase flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> Live Client Showcases
-              </span>
-              <h2 className="font-display font-extrabold text-3xl sm:text-4.2xl text-white tracking-tight leading-[1.1]">
-                Live demo websites built for service businesses.
-              </h2>
-              <p className="text-[#A5ACB8] text-sm sm:text-base leading-relaxed">
-                Explore premium website demos for window tinting, sprinkler repair, landscaping, and other local service businesses. Each demo is designed to look modern, load fast, and make it easy for customers to call or request a quote.
-              </p>
-            </div>
-
-            {/* Render the incredible LivePortfolio Grid with hover-autoplay showcase videos */}
-            <LivePortfolio strokeColor="blue" />
-          </div>
-
-          {/* Separation line spacer */}
-          <div className="relative py-4">
-            <div className="absolute inset-0 flex items-center" aria-hidden="true">
-              <div className="w-full border-t border-white/5" />
-            </div>
-            <div className="relative flex justify-center">
-              <span className="bg-[#05070A] px-4 font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
-                Interactive Engineering Lab
-              </span>
-            </div>
-          </div>
-
-          {/* Subsection 2: Interactive Live Mobile Device Spec Simulators */}
-          <div className="space-y-12">
-            <div className="max-w-3xl mx-auto space-y-3">
-              <span className="font-mono text-xs font-bold text-indigo-400 tracking-widest uppercase flex items-center justify-center gap-1.5">
-                <Cpu className="w-4 h-4 text-indigo-400" /> Interactive Previews
-              </span>
-              <h3 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
-                See how a modern service website can guide visitors toward a call or quote request.
-              </h3>
-              <p className="text-[#A5ACB8] text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-                Test custom interactive elements such as tint match sliders, emergency diagnostic panels, and property area estimators.
-              </p>
-            </div>
-
-            {/* Embed the majestic interactive device visualizer */}
-            <DemoDeviceSimulator 
-              initialDemoId={selectedDemoId}
-              onOpenConsultation={(subject) => openConsultation(subject)} 
-            />
-          </div>
-
-        </div>
-      </section>
 
       {/* 5. SERVICES SECTION */}
       <section
