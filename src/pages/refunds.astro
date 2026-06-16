@@ -1,0 +1,61 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE } from '../data/site';
+const ENTITY = 'Siterra';
+---
+
+<Legal title="Refunds & Guarantee" updated="June 12, 2026" path="/refunds" description="How refunds work at Siterra: the Design-First Guarantee, what's covered before full build-out begins, and how care-plan cancellations are handled.">
+  <p>
+    We want you confident before you commit. Website builds are custom work, so our refund terms are
+    built around the Design-First Guarantee below. This page explains how refunds work on services
+    from {ENTITY}.
+  </p>
+
+  <h2>The Design-First Guarantee</h2>
+  <p>
+    Every project starts with strategy and a design direction <strong>before</strong> we build out your
+    full site. You review that direction first. If it isn’t right for you and we are unable to make it
+    right through the revision rounds included in your package, you may request a
+    <strong>full refund of your project fee</strong> before full build-out begins. The risk is ours,
+    not yours.
+  </p>
+
+  <h2>What’s covered</h2>
+  <ul>
+    <li>The one-time project fee for your selected package</li>
+    <li>Refund requests made during the design-approval stage, before full build-out</li>
+  </ul>
+
+  <h2>What’s not covered</h2>
+  <ul>
+    <li>
+      Work completed after you’ve approved the design direction and we’ve begun full build-out,
+      except where required by law
+    </li>
+    <li>
+      Third-party costs paid on your behalf — such as premium domains, paid fonts, stock media, or
+      paid integrations
+    </li>
+    <li>Add-on services that have already been delivered</li>
+  </ul>
+
+  <h2>Monthly care plans</h2>
+  <p>
+    Care plans are optional. First 30 days included. Monthly billing starts after the trial. Cancel
+    before the first monthly charge at no cost. After billing begins, cancelling stops all future
+    charges; we do not refund partial months unless there was a billing error.
+  </p>
+
+  <h2>How to request a refund</h2>
+  <p>
+    Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> with your business name and order details.
+    We’ll confirm your request and process eligible refunds to your original payment method via
+    Stripe. Refunds typically appear within 5–10 business days, depending on your bank.
+  </p>
+
+  <h2>Questions first</h2>
+  <p>
+    If something isn’t working for you, tell us before requesting a refund — most concerns are
+    solved with a conversation and a revision. We’d rather make it right.
+  </p>
+</Legal>

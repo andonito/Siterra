@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found" path="/404">
+  <section class="section status-section">
+    <div class="container status-inner">
+      <p class="eyebrow">Error 404</p>
+      <h1 class="h1 nf-title">Off the map.</h1>
+      <p class="lead status-lead">
+        The page you’re looking for doesn’t exist or has moved. Let’s get you back on solid
+        ground.
+      </p>
+      <div class="status-actions">
+        <a href="/" class="btn">Back to home</a>
+        <a href="/start" class="btn btn-ghost">Start a project</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .status-section { min-height: 70vh; display: grid; align-items: center; }
+  .status-inner { max-width: 40rem; margin-inline: auto; text-align: center; display: grid; gap: 1.3rem; justify-items: center; }
+  .nf-title { font-size: clamp(3rem, 9vw, 5.5rem); }
+  .status-lead { margin-inline: auto; }
+  .status-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; margin-top: 0.6rem; }
+</style>

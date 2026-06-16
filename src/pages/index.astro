@@ -1,0 +1,376 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Ticker from '../components/Ticker.astro';
+import Work from '../components/Work.astro';
+import Founder from '../components/Founder.astro';
+import { PACKAGES, ADDONS, CARE_PLANS, fmtUSD } from '../data/pricing';
+import { FAQS, SITE } from '../data/site';
+
+const buildCards = [
+  {
+    title: 'A site that earns trust fast',
+    body: 'Clean, premium design that signals you’re established and serious — the moment someone lands.',
+  },
+  {
+    title: 'Copy that turns clicks into calls',
+    body: 'Conversion-focused writing for every service, built around what your customers actually search and ask.',
+  },
+  {
+    title: 'Built to be found locally',
+    body: 'Semantic structure, service-area pages, and clean markup that help search engines place you in your city.',
+  },
+  {
+    title: 'Fast, secure, and yours',
+    body: 'Edge-deployed hosting, locked-down forms, and full ownership of everything we build for you.',
+  },
+];
+
+const process = [
+  { n: '01', title: 'Blueprint', body: 'We map your services, customers, and goals into a clear site structure and strategy before a single pixel is designed.' },
+  { n: '02', title: 'Design', body: 'You see a premium design direction first — and approve it before we build. Love it or get a full refund.' },
+  { n: '03', title: 'Build', body: 'We build on a live staging link you can watch, with your copy, gallery, forms, and integrations wired in.' },
+  { n: '04', title: 'Launch', body: 'We deploy to fast, secure hosting, connect your domain with zero downtime, and hand you the keys.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base path="/">
+  <Hero />
+  <Ticker />
+
+  {/* ── Problem ── */}
+  <section class="section">
+    <div class="container problem">
+      <div class="problem-head" data-reveal>
+        <p class="eyebrow">The real cost of a weak site</p>
+        <h2 class="h2">Good businesses lose work to better websites.</h2>
+      </div>
+      <div class="problem-grid">
+        <p class="lead" data-reveal>
+          You do excellent work. But online, a dated or DIY site quietly tells people the opposite —
+          and they call the competitor who simply looks more credible. The job was yours to lose, and
+          the website lost it before you ever got a chance.
+        </p>
+        <div class="problem-stats" data-reveal style="--reveal-delay:0.1s">
+          <div class="problem-stat">
+            <span class="problem-stat-n">First impression</span>
+            <span class="problem-stat-l">Visitors judge your site in well under a second — before reading a word.</span>
+          </div>
+          <div class="problem-stat">
+            <span class="problem-stat-n">Mobile-first</span>
+            <span class="problem-stat-l">Most local searches happen on a phone. A clunky mobile site loses them instantly.</span>
+          </div>
+          <div class="problem-stat">
+            <span class="problem-stat-n">Trust gap</span>
+            <span class="problem-stat-l">A premium site closes the deals your referrals and ads open.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── What we build ── */}
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">What you get</p>
+        <h2 class="h2">More than a website. A reason to call you.</h2>
+        <p class="lead">Every Siterra build is engineered to do four jobs at once.</p>
+      </div>
+      <div class="build-grid">
+        {buildCards.map((c, i) => (
+          <div class="card card-hover build-card" data-reveal style={`--reveal-delay:${i * 0.07}s`}>
+            <div class="build-mark" aria-hidden="true">
+              <span></span>
+            </div>
+            <h3 class="h3">{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Work />
+
+  <Founder />
+
+  {/* ── Process ── */}
+  <section id="process" class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2 class="h2">A clear path from booked to live.</h2>
+        <p class="lead">No mystery, no endless back-and-forth. Four phases, with you in control at each one.</p>
+      </div>
+      <div class="process-grid">
+        {process.map((p, i) => (
+          <div class="step" data-reveal style={`--reveal-delay:${i * 0.06}s`}>
+            <span class="step-marker" aria-hidden="true"></span>
+            <span class="step-num">{p.n}</span>
+            <h3 class="h3 process-title">{p.title}</h3>
+            <p class="body-mute process-body">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Pricing ── */}
+  <section id="pricing" class="section section-alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Pricing</p>
+        <h2 class="h2">Clear, upfront pricing.</h2>
+        <p class="lead">
+          One simple payment, full ownership, no surprises. Pick the build that fits where your
+          business is now.
+        </p>
+        <p class="price-founding" data-reveal style="--reveal-delay:0.08s">
+          Siterra is early by design — you work directly with the founder, at honest early pricing.
+        </p>
+      </div>
+      <div class="price-grid">
+        {PACKAGES.map((p, i) => (
+          <div class={`card price-card ${p.recommended ? 'is-rec' : ''}`} data-reveal style={`--reveal-delay:${i * 0.05}s`}>
+            {p.recommended && <span class="badge">Recommended</span>}
+            <div class="price-top">
+              <h3 class="h3">{p.name}</h3>
+              <p class="price-amt">{p.priceLabel}</p>
+              <p class="mono-note">{p.delivery}</p>
+            </div>
+            <p class="price-blurb">{p.blurb}</p>
+            <ul class="check-list price-features">
+              {p.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a
+              href={p.quoteOnly ? '/quote?tier=authority' : `/start?package=${p.id}`}
+              class={`btn ${p.recommended ? '' : 'btn-ghost'} price-cta`}
+            >
+              {p.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Add-ons ── */}
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Add-ons</p>
+        <h2 class="h2">Push it further when you’re ready.</h2>
+        <p class="lead">Bolt on extra capability at checkout — or add it later as you grow.</p>
+      </div>
+      <div class="addon-grid">
+        {ADDONS.map((a, i) => (
+          <div class="card card-hover addon-card" data-reveal style={`--reveal-delay:${i * 0.05}s`}>
+            <div class="addon-top">
+              <h3 class="addon-name">{a.name}</h3>
+              <span class="addon-price">{a.priceLabel}</span>
+            </div>
+            <p class="body-mute addon-desc">{a.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Care plans ── */}
+  <section id="care" class="section section-alt">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Care plans</p>
+        <h2 class="h2">Keep your website updated, protected, and improving.</h2>
+        <p class="lead">
+          Optional monthly care for owners who’d rather never think about hosting or edits again.
+          Add a plan at checkout, or start one later as you grow.
+        </p>
+      </div>
+      <div class="care-grid">
+        {CARE_PLANS.map((c, i) => (
+          <div class={`card care-card ${c.popular ? 'is-pop' : ''}`} data-reveal style={`--reveal-delay:${i * 0.05}s`}>
+            {c.popular && <span class="badge">Most popular</span>}
+            <div class="care-top">
+              <h3 class="h3">{c.name}</h3>
+              <p class="care-amt">{c.priceLabel}</p>
+            </div>
+            <ul class="check-list care-features">
+              {c.features.map((f) => <li>{f}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p class="care-foot mono-note" data-reveal>First 30 days included. Monthly billing starts after the trial. Cancel before the first monthly charge at no cost.</p>
+    </div>
+  </section>
+
+  {/* ── Guarantee ── */}
+  <section class="section">
+    <div class="container">
+      <div class="guarantee" data-reveal>
+        <div class="guarantee-mark" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h2 class="h2">The Design-First Guarantee</h2>
+        <p class="lead guarantee-lead">
+          You approve the design direction before we build the full site. If the design isn’t right
+          for you and we can’t make it right, you get a full refund. The risk is ours — not yours.
+        </p>
+        <div class="guarantee-actions">
+          <a href="/start" class="btn">Start a project</a>
+          <a href="/refunds" class="text-link guarantee-link">Read the full guarantee →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── FAQ ── */}
+  <section id="faq" class="section section-alt">
+    <div class="container faq-wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Questions</p>
+        <h2 class="h2">Good questions, straight answers.</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        {FAQS.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <div class="faq-body">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Final CTA ── */}
+  <section class="section final-cta">
+    <div class="container">
+      <div class="final-inner" data-reveal>
+        <h2 class="h1 final-title">Your next customer is searching right now.</h2>
+        <p class="lead final-lead">
+          Give them a website that earns the call. Start your build today, or get a free Site
+          Blueprint with no obligation.
+        </p>
+        <div class="final-actions">
+          <a href="/start" class="btn">Start a project</a>
+          <a href="/quote" class="btn btn-ghost">Get a free Site Blueprint</a>
+        </div>
+        <p class="mono-note final-mail">
+          Prefer email? <a href={`mailto:${SITE.email}`} class="text-link">{SITE.email}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <set:html value={`<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`} />
+</Base>
+
+<style>
+  /* Problem */
+  .problem { display: grid; gap: 2.5rem; }
+  .problem-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .problem-stats { display: grid; gap: 1.25rem; }
+  .problem-stat { display: grid; gap: 0.35rem; padding-left: 1.25rem; border-left: 2px solid var(--accent); }
+  .problem-stat-n { font: 600 1rem var(--font-display); }
+  .problem-stat-l { color: var(--mute); font-size: 0.92rem; }
+
+  /* What we build */
+  .build-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  .build-card { padding: 1.6rem; display: grid; gap: 0.8rem; align-content: start; }
+  .build-card p { color: var(--mute); font-size: 0.92rem; }
+  .build-mark { width: 2.4rem; height: 2.4rem; border-radius: 10px; border: 1px solid var(--line-strong); display: grid; place-items: center; }
+  .build-mark span { width: 0.85rem; height: 0.85rem; border-radius: 50%; border: 1.6px solid var(--accent); background: radial-gradient(circle at 64% 36%, var(--accent) 0 2px, transparent 2.6px); }
+
+  /* Process */
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .process-title { margin-top: 0.7rem; }
+  .process-body { font-size: 0.92rem; margin-top: 0.4rem; }
+
+  /* Pricing */
+  .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-items: stretch; }
+  .price-card { padding: 1.6rem; display: flex; flex-direction: column; gap: 1.2rem; position: relative; }
+  .price-card.is-rec { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 30px 70px -40px var(--glow-strong); }
+  .price-top { display: grid; gap: 0.45rem; }
+  .price-amt { font: 700 1.9rem var(--font-display); color: var(--ink); letter-spacing: -0.02em; }
+  .price-blurb { color: var(--mute); font-size: 0.9rem; min-height: 3.2em; }
+  .price-features { margin-top: 0.2rem; }
+  .price-cta { margin-top: auto; }
+  .price-founding {
+    margin-top: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font: 500 0.95rem var(--font-body);
+    color: var(--ink);
+  }
+  .price-founding::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px -1px var(--accent);
+    flex: none;
+  }
+
+  /* Add-ons */
+  .addon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+  .addon-card { padding: 1.4rem; display: grid; gap: 0.55rem; }
+  .addon-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .addon-name { font: 600 1.02rem var(--font-display); }
+  .addon-price { color: var(--accent); font: 600 1.02rem var(--font-display); white-space: nowrap; }
+  .addon-desc { font-size: 0.9rem; }
+
+  /* Care */
+  .care-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; align-items: stretch; }
+  .care-card { padding: 1.6rem; display: grid; gap: 1.2rem; position: relative; align-content: start; }
+  .care-card.is-pop { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 30px 70px -40px var(--glow-strong); }
+  .care-top { display: grid; gap: 0.3rem; }
+  .care-amt { font: 700 1.6rem var(--font-display); color: var(--ink); }
+  .care-foot { text-align: center; margin-top: 2rem; }
+
+  /* Guarantee */
+  .guarantee { max-width: 44rem; margin-inline: auto; text-align: center; display: grid; gap: 1.2rem; justify-items: center; padding: clamp(2rem, 5vw, 3.5rem); border: 1px solid var(--line); border-radius: 22px; background: radial-gradient(120% 130% at 50% 0%, color-mix(in oklab, var(--accent) 9%, transparent), transparent 60%), var(--surface); }
+  .guarantee-mark { width: 4rem; height: 4rem; border-radius: 50%; display: grid; place-items: center; color: var(--accent); border: 1px solid var(--line-strong); background: var(--bg2); }
+  .guarantee-lead { margin-inline: auto; }
+  .guarantee-actions { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+
+  /* FAQ */
+  .faq-wrap { max-width: 50rem; }
+  .faq-list { margin-top: 1rem; }
+
+  /* Final CTA */
+  .final-cta { text-align: center; }
+  .final-inner { max-width: 46rem; margin-inline: auto; display: grid; gap: 1.4rem; justify-items: center; }
+  .final-title { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+  .final-lead { margin-inline: auto; }
+  .final-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; margin-top: 0.6rem; }
+  .final-mail { margin-top: 0.8rem; }
+
+  @media (max-width: 1000px) {
+    .build-grid, .price-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+    .care-grid { grid-template-columns: 1fr; max-width: 26rem; margin-inline: auto; }
+  }
+  @media (max-width: 720px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .build-grid, .price-grid, .addon-grid, .process-grid { grid-template-columns: 1fr; }
+  }
+</style>

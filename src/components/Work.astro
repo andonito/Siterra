@@ -1,0 +1,179 @@
+---
+import { DEMOS } from '../data/site';
+
+const PROOF = [
+  'Conversion-focused layouts',
+  'Service pages that sell',
+  'Forms, checkout, and follow-up flows',
+];
+---
+
+<section id="work" class="section section-alt work-section">
+  <div class="work-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Selected website demos</p>
+      <h2 class="h2">Built to help service businesses earn trust fast.</h2>
+      <p class="lead">
+        Explore sample builds for local service brands, each designed around faster trust, clearer
+        offers, and stronger calls to action.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      {DEMOS.map((demo, i) => (
+        <a
+          class:list={['demo-link', { 'demo-featured': demo.featured, 'demo-offset': i === 1 }]}
+          href={demo.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-reveal
+          style={`--reveal-delay:${0.12 + i * 0.12}s`}
+          aria-label={`Open the ${demo.name} demo site in a new tab`}
+        >
+          <div class="frame">
+            <div class="frame-bar">
+              <div class="frame-dots"><span></span><span></span><span></span></div>
+              <div class="frame-url">
+                <svg class="lock" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span>{demo.displayUrl}</span>
+              </div>
+            </div>
+            <div class="frame-media">
+              <img
+                class="frame-shot"
+                src={demo.screenshot}
+                alt={`Screenshot of the ${demo.name} demo website homepage`}
+                width="1280"
+                height="752"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="frame-visit">
+                Visit site
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17 17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="demo-meta">
+            <h3 class="h3">{demo.name}</h3>
+            <p class="mono-note">{demo.meta}</p>
+            <p class="demo-summary">{demo.summary}</p>
+            <ul class="demo-tags">
+              {demo.tags.map((t) => <li>{t}</li>)}
+            </ul>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <ul class="work-proof" data-reveal style="--reveal-delay:0.3s">
+      {PROOF.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .work-section {
+    position: relative;
+    overflow: hidden;
+  }
+  /* Layered cyan glow behind the previews for portfolio depth. */
+  .work-glow {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    width: min(1100px, 90%);
+    height: 70%;
+    transform: translateX(-50%);
+    background: radial-gradient(60% 50% at 38% 40%, var(--glow-strong), transparent 70%);
+    opacity: 0.5;
+    filter: blur(8px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .work-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1.06fr 0.94fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+  /* Second card sits lower for staggered, layered depth on desktop. */
+  .demo-offset {
+    margin-top: clamp(1.5rem, 5vw, 4rem);
+  }
+  .demo-featured .frame {
+    box-shadow: 0 36px 90px -42px rgba(0, 0, 0, 0.7), 0 0 70px -34px var(--glow-strong);
+  }
+  .demo-meta {
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .demo-summary {
+    color: var(--mute);
+    font-size: 0.95rem;
+    max-width: 42ch;
+    margin-top: 0.2rem;
+  }
+  .demo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+  }
+  .demo-tags li {
+    padding: 0.32em 0.78em;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface2);
+    color: var(--ink-soft, var(--mute));
+    font: 500 0.72rem var(--font-mono);
+    letter-spacing: 0.03em;
+  }
+  .work-proof {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem 2.2rem;
+    margin-top: clamp(2.75rem, 6vw, 4rem);
+    padding-top: clamp(1.75rem, 4vw, 2.5rem);
+    border-top: 1px solid var(--line);
+  }
+  .work-proof li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font: 500 0.82rem var(--font-mono);
+    letter-spacing: 0.05em;
+    color: var(--mute);
+  }
+  .work-proof li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px -1px var(--accent);
+  }
+  @media (max-width: 760px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+    .demo-offset {
+      margin-top: 0;
+    }
+    .work-proof {
+      gap: 0.7rem 1.6rem;
+    }
+  }
+</style>

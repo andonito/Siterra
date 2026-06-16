@@ -1,0 +1,83 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE } from '../data/site';
+const ENTITY = 'Siterra';
+---
+
+<Legal title="Terms of Service" updated="June 12, 2026" path="/terms" description="The terms that govern Siterra's website design and development services, payment, the Design-First Guarantee, ownership, and care plans.">
+  <p>
+    These Terms of Service ("Terms") govern your use of {SITE.domain} and the website design and
+    development services provided by {ENTITY} ("we", "us"). By purchasing a package or
+    using our site, you agree to these Terms.
+  </p>
+
+  <h2>Services</h2>
+  <p>
+    Siterra provides website design, development, copywriting, and related services as described in
+    the package you select. Specific deliverables, timelines, and revision rounds are defined by your
+    chosen package and any add-ons purchased at checkout. Timelines begin at project kickoff and may
+    adjust based on the timeliness of materials and feedback you provide.
+  </p>
+
+  <h2>Payment</h2>
+  <p>
+    Project fees are billed in full at checkout via our payment processor, Stripe. Optional monthly
+    care plans are billed as recurring subscriptions. First 30 days included. Monthly billing starts
+    after the trial. Cancel before the first monthly charge at no cost. You authorize us and Stripe
+    to charge your selected payment method for the amounts shown at checkout.
+  </p>
+
+  <h2>The Design-First Guarantee</h2>
+  <p>
+    We present a design direction for your approval before building out your full site. If the design
+    direction is not right for you and we are unable to make it right, you may request a full refund
+    of your project fee before full build-out begins. Full details are on our
+    <a href="/refunds">Refunds &amp; Guarantee</a> page.
+  </p>
+
+  <h2>Client responsibilities</h2>
+  <p>
+    You agree to provide accurate business information, timely feedback, and any content (text, images,
+    logos) you wish to include, and you confirm you have the rights to all materials you supply. Delays
+    in providing materials or approvals may affect delivery timelines.
+  </p>
+
+  <h2>Ownership</h2>
+  <p>
+    Upon final payment, you own the website we deliver — including its design, code, and content — along
+    with the associated domain and hosting accounts set up in your name. Siterra retains the right to
+    display the completed work in our portfolio unless you request otherwise in writing.
+  </p>
+
+  <h2>Third-party services</h2>
+  <p>
+    Your site may rely on third-party services such as hosting, payment processing, analytics, and
+    booking integrations. Your use of those services is subject to their own terms, and we are not
+    responsible for their availability or performance.
+  </p>
+
+  <h2>Limitation of liability</h2>
+  <p>
+    To the maximum extent permitted by law, Siterra is not liable for any indirect, incidental, or
+    consequential damages arising from your use of our services or website. Our total liability for any
+    claim is limited to the amount you paid for the services giving rise to the claim.
+  </p>
+
+  <h2>Governing law</h2>
+  <p>
+    These Terms are governed by the laws of the State of Florida, without regard to its conflict of
+    law provisions. Any dispute arising from these Terms or our services will be handled in the state
+    or federal courts located in Florida, and you consent to that jurisdiction.
+  </p>
+
+  <h2>Changes to these Terms</h2>
+  <p>
+    We may update these Terms from time to time. Material changes will be reflected by the "last
+    updated" date above. Continued use of our services after changes constitutes acceptance.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about these Terms? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+</Legal>

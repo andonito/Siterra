@@ -1,0 +1,80 @@
+---
+// Contour Summit — concentric topographic arcs rising to a summit dot.
+// Inline SVG so it inherits theme colors live (no asset swap on theme change).
+export interface Props {
+  variant?: 'horizontal' | 'icon';
+  class?: string;
+  height?: number;
+}
+const { variant = 'horizontal', class: cls = '', height = 30 } = Astro.props;
+
+// Four concentric arcs whose centers drift toward the summit dot.
+const rings = [
+  { cx: 46, cy: 50, r: 31, accent: false },
+  { cx: 49, cy: 47, r: 23, accent: false },
+  { cx: 53, cy: 43, r: 15, accent: false },
+  { cx: 57, cy: 39, r: 8, accent: true },
+];
+// Arc path: gap of ~46° centered at 135° (opening toward lower-left).
+function arc(cx: number, cy: number, r: number) {
+  const start = ((135 + 23) * Math.PI) / 180;
+  const end = ((135 - 23 + 360) * Math.PI) / 180;
+  const x1 = cx + r * Math.cos(start);
+  const y1 = cy + r * Math.sin(start);
+  const x2 = cx + r * Math.cos(end);
+  const y2 = cy + r * Math.sin(end);
+  return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 1 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+}
+const summit = { x: 61, y: 35, r: 4.6 };
+const titleId = `logo-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+{variant === 'icon' ? (
+  <svg
+    class={cls}
+    height={height}
+    viewBox="0 0 96 96"
+    fill="none"
+    role="img"
+    aria-labelledby={titleId}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title id={titleId}>Siterra</title>
+    {rings.map((ring) => (
+      <path
+        d={arc(ring.cx, ring.cy, ring.r)}
+        stroke={ring.accent ? 'var(--accent)' : 'currentColor'}
+        stroke-width="5"
+        stroke-linecap="round"
+        opacity={ring.accent ? 1 : 0.92}
+      />
+    ))}
+    <circle cx={summit.x} cy={summit.y} r={summit.r} fill="var(--accent)" />
+  </svg>
+) : (
+  <span class={`inline-flex items-center gap-[0.55em] ${cls}`} style={`height:${height}px`}>
+    <svg
+      height={height}
+      viewBox="0 0 96 96"
+      fill="none"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      style="flex:none"
+    >
+      {rings.map((ring) => (
+        <path
+          d={arc(ring.cx, ring.cy, ring.r)}
+          stroke={ring.accent ? 'var(--accent)' : 'currentColor'}
+          stroke-width="5"
+          stroke-linecap="round"
+          opacity={ring.accent ? 1 : 0.92}
+        />
+      ))}
+      <circle cx={summit.x} cy={summit.y} r={summit.r} fill="var(--accent)" />
+    </svg>
+    <span
+      style="font-family:var(--font-display);font-weight:700;font-size:1.32em;letter-spacing:-0.03em;line-height:1;color:currentColor"
+      >Siterra</span
+    >
+  </span>
+)}

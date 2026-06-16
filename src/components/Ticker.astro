@@ -1,0 +1,15 @@
+---
+import { TICKER } from '../data/site';
+const items = [...TICKER, ...TICKER]; // duplicated for seamless loop
+---
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    {items.map((item) => (
+      <div class="ticker-item">
+        <span class="dot"></span>
+        {item}
+      </div>
+    ))}
+  </div>
+</div>

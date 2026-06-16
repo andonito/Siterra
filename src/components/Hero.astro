@@ -1,0 +1,137 @@
+---
+import { SITE } from '../data/site';
+---
+
+<section class="hero">
+  <canvas id="terrain" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-fade" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <p class="eyebrow" data-reveal>Premium websites for service businesses</p>
+
+    <h1 class="h1 hero-title" data-reveal style="--reveal-delay:0.05s">
+      Look like the<br /><span class="hero-em">obvious choice.</span>
+    </h1>
+
+    <p class="lead hero-lead" data-reveal style="--reveal-delay:0.12s">
+      Most service businesses lose work before the phone rings. Siterra builds fast, polished
+      websites that earn trust in seconds and turn searches into booked jobs.
+    </p>
+
+    <div class="hero-actions" data-reveal style="--reveal-delay:0.18s">
+      <a href="/start" class="btn">Start a project</a>
+      <a href="/quote" class="btn btn-ghost">Get a free Site Blueprint</a>
+    </div>
+
+    <ul class="hero-trust" data-reveal style="--reveal-delay:0.24s">
+      <li>Launches in days</li>
+      <li>You own everything</li>
+      <li>Design-first guarantee</li>
+      <li>Stripe-secured checkout</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 13vh, 9rem) clamp(4rem, 9vw, 7rem);
+    isolation: isolate;
+  }
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.62;
+  }
+  .hero-fade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(120% 80% at 78% 12%, transparent 30%, var(--bg) 78%),
+      linear-gradient(180deg, transparent 55%, var(--bg) 96%);
+  }
+  .hero-inner {
+    max-width: 56rem;
+  }
+  /* The headline is the strongest line on the page — make it dominant. */
+  .hero-title {
+    margin-top: 1.35rem;
+    font-size: clamp(3.1rem, 8.6vw, 6rem);
+    line-height: 1.02;
+  }
+  .hero-em {
+    color: var(--accent);
+  }
+  .hero-lead {
+    margin-top: 1.5rem;
+    font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+    max-width: 40rem;
+    /* Soft dark halo keeps the subtext readable where the topographic lines cross it. */
+    text-shadow: 0 1px 2px var(--bg), 0 1px 18px var(--bg);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 2.2rem;
+  }
+  .hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem 1.9rem;
+    margin-top: 2.5rem;
+  }
+  .hero-trust li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font: 500 0.82rem var(--font-mono);
+    letter-spacing: 0.08em;
+    color: var(--mute);
+  }
+  .hero-trust li::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    background: radial-gradient(circle at 64% 36%, var(--accent) 0 1.5px, transparent 2px);
+  }
+
+  /* Mobile: tighter rhythm + stacked, full-width CTAs so they stay above the fold. */
+  @media (max-width: 640px) {
+    .hero {
+      padding-block: 3.25rem 3.5rem;
+    }
+    .hero-title {
+      margin-top: 1.05rem;
+      font-size: clamp(2.85rem, 13vw, 3.6rem);
+    }
+    .hero-lead {
+      margin-top: 1.1rem;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.7rem;
+      margin-top: 1.7rem;
+    }
+    .hero-actions .btn {
+      width: 100%;
+    }
+    .hero-trust {
+      margin-top: 1.9rem;
+      gap: 0.75rem 1.4rem;
+    }
+  }
+</style>
+
+<script>
+  import { initTerrain } from '../scripts/terrain';
+  initTerrain('terrain');
+</script>

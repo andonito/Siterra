@@ -1,0 +1,165 @@
+---
+import '@fontsource/sora/400.css';
+import '@fontsource/sora/600.css';
+import '@fontsource/sora/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import StyleStudio from '../components/islands/StyleStudio.tsx';
+import { SITE } from '../data/site';
+import { PACKAGES, CARE_PLANS, fmtUSD } from '../data/pricing';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  path = '',
+  ogImage = '/brand/og.png',
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
+const canonical = new URL(path, SITE.url).href;
+const ogImageUrl = new URL(ogImage, SITE.url).href;
+
+const studioEnabled = import.meta.env.PUBLIC_STUDIO_ENABLED !== 'false';
+
+// Optional analytics — only injected when the matching env var is set.
+// If unset, nothing renders and the site builds normally. No IDs are hardcoded.
+const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const CLARITY_ID = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+
+// ── Structured data ──────────────────────────────────────────────
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  email: SITE.email,
+  areaServed: 'United States',
+  serviceType: 'Web design and development for service businesses',
+  brand: { '@type': 'Brand', name: SITE.name },
+  offers: PACKAGES.filter((p) => !p.quoteOnly).map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: (p.price / 100).toFixed(2),
+    priceCurrency: 'USD',
+    description: p.blurb,
+  })),
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="obsidian">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Theme pre-paint: apply saved theme/accent/motion before first paint -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('siterra-theme');
+          var valid = ['obsidian', 'atlas', 'gallery', 'terra', 'graphite'];
+          if (t && valid.indexOf(t) !== -1)
+            document.documentElement.setAttribute('data-theme', t);
+          var h = localStorage.getItem('siterra-accent-h');
+          if (h) document.documentElement.style.setProperty('--accent-h', h);
+          var m = localStorage.getItem('siterra-motion');
+          if (m === 'low') document.documentElement.setAttribute('data-motion', 'low');
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/brand/icon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="theme-color" content="#07090d" />
+
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(serviceSchema)}</script>`} />
+
+    {/* Optional GA4 — only when PUBLIC_GA_MEASUREMENT_ID is set */}
+    {GA_ID && (
+      <Fragment>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script define:vars={{ gaId: GA_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = window.gtag || gtag;
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </Fragment>
+    )}
+
+    {/* Optional Microsoft Clarity — only when PUBLIC_CLARITY_PROJECT_ID is set */}
+    {CLARITY_ID && (
+      <script define:vars={{ clarityId: CLARITY_ID }}>
+        (function (c, l, a, r, i, t, y) {
+          c[a] =
+            c[a] ||
+            function () {
+              (c[a].q = c[a].q || []).push(arguments);
+            };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', clarityId);
+      </script>
+    )}
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    {studioEnabled && <StyleStudio client:idle />}
+
+    <script>
+      import { initReveals } from '../scripts/reveal';
+      initReveals();
+    </script>
+  </body>
+</html>

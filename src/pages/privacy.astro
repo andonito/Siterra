@@ -1,0 +1,70 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SITE } from '../data/site';
+const ENTITY = 'Siterra';
+---
+
+<Legal title="Privacy Policy" updated="June 12, 2026" path="/privacy" description="How Siterra collects, uses, and protects the information you share — including form submissions, checkout details handled by Stripe, and your rights.">
+  <p>
+    This Privacy Policy explains how {ENTITY} ("we", "us") collects, uses, and protects
+    information when you use {SITE.domain} and our services.
+  </p>
+
+  <h2>Information we collect</h2>
+  <p>We collect information you provide directly, including:</p>
+  <ul>
+    <li>Contact details — name, email, phone number, and business name</li>
+    <li>Project details — your business type, service area, current website, and goals</li>
+    <li>Payment information — processed securely by Stripe; we do not store full card numbers</li>
+  </ul>
+  <p>
+    We may also collect limited technical information automatically, such as general usage data, if
+    analytics are enabled on the site.
+  </p>
+
+  <h2>How we use your information</h2>
+  <ul>
+    <li>To respond to inquiries and prepare your Site Blueprint or quote</li>
+    <li>To deliver, manage, and support the services you purchase</li>
+    <li>To process payments and send transactional emails such as receipts and project updates</li>
+    <li>To improve our services and communicate important changes</li>
+  </ul>
+
+  <h2>How we share information</h2>
+  <p>
+    We do not sell your personal information. We share it only with service providers who help us
+    operate — such as Stripe for payments, our hosting and email providers, and analytics tools you
+    approve — and only as needed to deliver our services or comply with the law.
+  </p>
+
+  <h2>Data retention</h2>
+  <p>
+    We keep your information for as long as needed to provide our services and meet legal and
+    accounting obligations. You may request deletion of your personal information at any time, subject
+    to records we are required to retain.
+  </p>
+
+  <h2>Your choices</h2>
+  <p>
+    You can request access to, correction of, or deletion of your personal information by emailing us.
+    You can also opt out of non-essential communications at any time.
+  </p>
+
+  <h2>Security</h2>
+  <p>
+    We take reasonable measures to protect your information, including secure form handling and
+    encrypted payment processing. No method of transmission over the internet is completely secure,
+    however, and we cannot guarantee absolute security.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    We may update this Privacy Policy periodically. Material changes will be reflected by the "last
+    updated" date above.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions or requests about your privacy? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+  </p>
+</Legal>

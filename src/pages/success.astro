@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+---
+
+<Base title="You’re booked" description="Your project is confirmed." path="/success">
+  <section class="section status-section">
+    <div class="container status-inner">
+      <div class="status-mark status-ok" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <p class="eyebrow">Payment confirmed</p>
+      <h1 class="h1 status-title">You’re booked. Let’s build.</h1>
+      <p class="lead status-lead">
+        Thank you — your project is confirmed and your spot is reserved. A receipt is on its way to
+        your inbox, and you’ll get a kickoff email from {SITE.email} within one business day to
+        start your Blueprint.
+      </p>
+      <div class="status-steps">
+        <div class="status-step">
+          <span class="status-step-n">Next</span>
+          <span>Watch for your kickoff email and a short intake to gather your details.</span>
+        </div>
+        <div class="status-step">
+          <span class="status-step-n">Then</span>
+          <span>We design your direction first — and you approve it before we build.</span>
+        </div>
+      </div>
+      <div class="status-actions">
+        <a href="/" class="btn btn-ghost">Back to home</a>
+        <a href={`mailto:${SITE.email}`} class="btn">Email us a question</a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Optional analytics — no-ops if GA isn't configured.
+    window.gtag && window.gtag('event', 'checkout_success');
+  </script>
+</Base>
+
+<style>
+  .status-section { min-height: 70vh; display: grid; align-items: center; }
+  .status-inner { max-width: 42rem; margin-inline: auto; text-align: center; display: grid; gap: 1.3rem; justify-items: center; }
+  .status-mark { width: 4.5rem; height: 4.5rem; border-radius: 50%; display: grid; place-items: center; }
+  .status-ok { background: var(--accent); color: var(--btn-ink); }
+  .status-title { margin-top: 0.3rem; }
+  .status-lead { margin-inline: auto; }
+  .status-steps { display: grid; gap: 0.8rem; width: 100%; max-width: 32rem; margin-top: 0.6rem; text-align: left; }
+  .status-step { display: flex; gap: 1rem; align-items: baseline; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 0.92rem; color: var(--mute); }
+  .status-step-n { font: 600 0.66rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); flex: none; width: 3rem; }
+  .status-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; margin-top: 0.6rem; }
+</style>

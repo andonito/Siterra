@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import QuoteForm from '../components/islands/QuoteForm.tsx';
+---
+
+<Base
+  title="Get a free Site Blueprint"
+  description="Tell us about your business and get a free, tailored Site Blueprint within 48 hours. No obligation."
+  path="/quote"
+>
+  <section class="quote-head section">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Free Site Blueprint</p>
+      <h1 class="h1 quote-title" data-reveal style="--reveal-delay:0.05s">
+        Get your free Site Blueprint.
+      </h1>
+      <p class="lead quote-lead" data-reveal style="--reveal-delay:0.1s">
+        Answer a few quick questions and we’ll send a tailored plan for your website — structure,
+        strategy, and a clear recommendation — within 48 hours. No cost, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <section class="bp-value section">
+    <div class="container bp-value-inner">
+      <div class="bp-card" data-reveal>
+        <p class="eyebrow">Your free Site Blueprint includes</p>
+        <h2 class="h3 bp-card-title">A useful mini-strategy — not just a contact form.</h2>
+        <ul class="bp-list">
+          <li>
+            <span class="bp-list-t">Recommended homepage structure</span>
+            <span class="bp-list-d">The sections that build trust fastest, in the right order.</span>
+          </li>
+          <li>
+            <span class="bp-list-t">Service page ideas</span>
+            <span class="bp-list-d">How to lay out your core services so they actually sell.</span>
+          </li>
+          <li>
+            <span class="bp-list-t">Conversion suggestions</span>
+            <span class="bp-list-d">Where to place calls, quote requests, and proof to win the click.</span>
+          </li>
+          <li>
+            <span class="bp-list-t">Local trust-building ideas</span>
+            <span class="bp-list-d">Simple ways to look established and credible in your area.</span>
+          </li>
+          <li>
+            <span class="bp-list-t">A package recommendation</span>
+            <span class="bp-list-d">An honest take on the right fit for where your business is now.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-form-wrap">
+    <div class="container quote-container">
+      <QuoteForm client:load />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .quote-head { padding-block: clamp(3.5rem, 8vw, 5.5rem) 1rem; }
+  .quote-title { margin-top: 1.2rem; }
+  .quote-lead { margin-top: 1.3rem; }
+  .bp-value { padding-block: 1.5rem 0.5rem; }
+  .bp-value-inner { max-width: 46rem; }
+  .bp-card {
+    padding: clamp(1.5rem, 4vw, 2.1rem);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: radial-gradient(120% 130% at 0% 0%, color-mix(in oklab, var(--accent) 7%, transparent), transparent 55%), var(--surface);
+  }
+  .bp-card-title { margin: 0.5rem 0 1.3rem; }
+  .bp-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.6rem;
+  }
+  .bp-list li {
+    display: grid;
+    gap: 0.2rem;
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  .bp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.34em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    background: radial-gradient(circle at 64% 36%, var(--accent) 0 1.5px, transparent 2px);
+  }
+  .bp-list-t { font: 600 0.96rem var(--font-display); letter-spacing: -0.01em; }
+  .bp-list-d { color: var(--mute); font-size: 0.88rem; line-height: 1.5; }
+  .quote-form-wrap { padding-block: 2rem clamp(4rem, 8vw, 6rem); }
+  .quote-container { max-width: 46rem; }
+  @media (max-width: 620px) {
+    .bp-list { grid-template-columns: 1fr; }
+  }
+</style>
